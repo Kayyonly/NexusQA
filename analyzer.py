@@ -1,100 +1,49 @@
 import json
-from checker import CheckResult
+import os
+import time
+from typing import Any
 
-# ── Provider yang tersedia ────────────────────────────────────────────────────
-PROVIDERS = {
-    "claude": "Anthropic Claude  (claude-sonnet-4-20250514)",
-    "openai": "OpenAI GPT        (gpt-4o)",
-    "gemini": "Google Gemini     (gemini-1.5-flash)",
-    "groq":   "Groq              (llama-3.3-70b-versatile) — Gratis!",
-}
+from groq import Groq
 
 
-def build_prompt(result: CheckResult) -> str:
-    """Buat prompt analisis dari hasil checker (dipakai semua provider)."""
-    broken_images = [i for i in result.images if not i.get("is_loaded")]
-    external_links = [l for l in result.links if l.get("is_external")]
+ADVANCED_ANALYSIS_PROMPT_TEMPLATE = """Kamu adalah seorang Senior QA Engineer sekaligus Senior Web Developer dengan pengalaman industri bertahun-tahun dalam:
 
-    data = {
-        "url": result.url,
-        "judul": result.page_title,
-        "meta_description": result.meta_description or "(tidak ada)",
-        "performa": {
-            "load_time_ms": result.load_time,
-            "dom_content_loaded_ms": result.dom_ready,
-            "first_contentful_paint_ms": result.fcp,
-            "ukuran_transfer_kb": result.resource_sizes.get("transfer_size_kb", 0),
-            "total_resource_kb": result.resource_sizes.get("total_resource_kb", 0),
-            "jumlah_resource": result.resource_sizes.get("resource_count", 0),
-        },
-        "errors": {
-            "console_errors": result.console_errors[:8],
-            "console_warnings": result.console_warnings[:5],
-            "network_errors": result.network_errors[:8],
-            "http_errors": result.failed_responses[:8],
-        },
-        "forms": {
-            "jumlah": len(result.forms),
-            "detail": [
-                {
-                    "method": f.get("method"),
-                    "jumlah_input": f.get("input_count"),
-                    "ada_submit": f.get("has_submit"),
-                    "inputs": f.get("inputs", [])[:4],
-                }
-                for f in result.forms
-            ],
-        },
-        "links": {
-            "total": len(result.links),
-            "internal": len(result.links) - len(external_links),
-            "eksternal": len(external_links),
-        },
-        "gambar": {
-            "total": len(result.images),
-            "rusak": len(broken_images),
-            "tanpa_alt": len([i for i in result.images if not i.get("has_alt")]),
-            "detail_rusak": [{"src": i["src"][:80]} for i in broken_images[:5]],
-        },
-        "aksesibilitas": result.accessibility_issues[:15],
-    }
-
-    return f"""Kamu adalah seorang Senior QA Engineer sekaligus Senior Web Developer dengan pengalaman industri bertahun-tahun dalam:
-- Website Quality Assurance
-- Automation Testing
-- Frontend & Backend Debugging
-- Performance Optimization
-- Accessibility Audit
-- Security Review
-- Modern Web Framework Analysis (React, Next.js, Vue, Nuxt, Laravel, Express, dll)
+* Website Quality Assurance
+* Automation Testing
+* Frontend & Backend Debugging
+* Performance Optimization
+* Accessibility Audit
+* Security Review
+* Modern Web Framework Analysis (React, Next.js, Vue, Nuxt, Laravel, Express, dll)
 
 Tugas kamu adalah menganalisa hasil testing otomatis website secara mendalam dan membuat laporan QA profesional dengan bahasa Indonesia yang natural, halus, mudah dipahami manusia, dan tidak terdengar seperti robot.
 
 ========================================
 📥 DATA HASIL TESTING
-========================================
+=====================
 
-{json.dumps(data, indent=2, ensure_ascii=False)}
+{testing_data_json}
 
 ========================================
 🎯 TUJUAN ANALISA
-========================================
+=================
 
 Lakukan analisa menyeluruh terhadap:
-- Performa website
-- Bug & error
-- UI/UX
-- Form validation
-- Accessibility
-- API/network issue
-- Security issue
-- Asset/media issue
-- Responsiveness
-- Console error
-- Failed request
-- Rendering/hydration issue
-- SEO basic issue
-- Best practice modern web
+
+* Performa website
+* Bug & error
+* UI/UX
+* Form validation
+* Accessibility
+* API/network issue
+* Security issue
+* Asset/media issue
+* Responsiveness
+* Console error
+* Failed request
+* Rendering/hydration issue
+* SEO basic issue
+* Best practice modern web
 
 Jika ada kemungkinan false positive dari automation testing, jelaskan juga.
 
@@ -103,30 +52,31 @@ Jika informasi kurang jelas, tandai sebagai:
 “⚠️ Perlu validasi manual lebih lanjut.”
 
 Gunakan gaya bahasa:
-- Profesional
-- Natural
-- Halus
-- Mudah dipahami
-- Tidak terlalu kaku
-- Tidak menghakimi developer
-- Fokus pada solusi konstruktif
+
+* Profesional
+* Natural
+* Halus
+* Mudah dipahami
+* Tidak terlalu kaku
+* Tidak menghakimi developer
+* Fokus pada solusi konstruktif
 
 ========================================
 📊 FORMAT OUTPUT
-========================================
+================
 
 # 🏆 SKOR KESELURUHAN: [X/100]
 
 Berikan penilaian umum kondisi website dalam 2–4 kalimat.
-Jelaskan apakah website sudah cukup stabil atau masih memiliki banyak masalah penting.
 
-Tambahkan penilaian:
-| Kategori | Skor |
-|---|---|
-| Stability | X/100 |
-| Performance | X/100 |
-| Security | X/100 |
-| Accessibility | X/100 |
+Tambahkan tabel penilaian:
+
+| Kategori        | Skor  |
+| --------------- | ----- |
+| Stability       | X/100 |
+| Performance     | X/100 |
+| Security        | X/100 |
+| Accessibility   | X/100 |
 | User Experience | X/100 |
 | Maintainability | X/100 |
 
@@ -134,28 +84,22 @@ Tambahkan penilaian:
 
 # ⚡ ANALISIS PERFORMA
 
-Evaluasi:
-- Load time
-- First Contentful Paint (FCP)
-- Largest Contentful Paint (LCP)
-- Time To Interactive (TTI)
-- Total Blocking Time
-- Ukuran halaman
-- Asset loading
-- API response
-- Caching
-- Render performance
+Analisa:
 
-Gunakan standar:
-- Load < 3s = bagus
-- FCP < 1.8s = bagus
-- LCP < 2.5s = bagus
+* Load time
+* FCP
+* LCP
+* Render performance
+* API latency
+* Asset loading
+* Bottleneck utama
 
-Jelaskan:
-- Apa yang sudah baik
-- Apa bottleneck utama
-- Dampaknya ke UX & SEO
-- Rekomendasi optimasi
+Berikan:
+
+* apa yang sudah baik
+* apa yang perlu optimasi
+* dampaknya ke UX & SEO
+* rekomendasi realistis
 
 Jika tidak ada masalah:
 ✅ Tidak ada masalah performa signifikan ditemukan.
@@ -164,36 +108,40 @@ Jika tidak ada masalah:
 
 # 🐛 BUG & ERROR
 
+Gunakan severity:
+
+* CRITICAL
+* HIGH
+* MEDIUM
+* LOW
+
 Untuk setiap issue gunakan format:
 
-## [CRITICAL/HIGH/MEDIUM/LOW] Nama Masalah
+## [SEVERITY] Nama Masalah
 
 ### Ringkasan
-Penjelasan singkat dan mudah dipahami.
+
+...
 
 ### Detail Teknis
-Jelaskan indikasi teknis atau penyebab kemungkinan.
+
+...
 
 ### Dampak
-Jelaskan dampaknya terhadap:
-- User Experience
-- Functionality
-- Security
-- Performance
-- SEO
-- Accessibility
-(jika relevan)
+
+...
 
 ### Kemungkinan Penyebab
-Analisa akar masalah.
+
+...
 
 ### Cara Fix / Rekomendasi
-Berikan solusi realistis dan best practice.
+
+...
 
 ### Prioritas
-- Segera diperbaiki
-- Bisa dijadwalkan
-- Opsional
+
+...
 
 Jika tidak ada bug:
 ✅ Tidak ada bug/error signifikan ditemukan.
@@ -203,25 +151,16 @@ Jika tidak ada bug:
 # 📋 UI & FORM
 
 Evaluasi:
-- Input field
-- Validation
-- Required field
-- Error message
-- Label form
-- Placeholder
-- Tombol submit
-- Navigasi link
-- Responsive layout
-- Mobile usability
-- Layout consistency
 
-Jika ada screenshot:
-- Analisa detail visual
-- Kemungkinan penyebab CSS/JS/layout issue
-- Indikasi hydration mismatch React/Next.js
-- Layout shift
-- Overflow
-- Z-index issue
+* form
+* validation
+* responsive
+* layout
+* usability
+* mobile issue
+* overflow
+* hydration mismatch
+* layout shift
 
 Jika tidak ada masalah:
 ✅ Tidak ada masalah UI/form signifikan ditemukan.
@@ -231,100 +170,73 @@ Jika tidak ada masalah:
 # ♿ AKSESIBILITAS
 
 Evaluasi:
-- Alt text
-- Contrast
-- ARIA label
-- Semantic HTML
-- Keyboard navigation
-- Screen reader compatibility
-- Heading structure
 
-Kelompokkan berdasarkan prioritas:
-- Critical
-- High
-- Medium
-- Low
+* alt text
+* semantic HTML
+* heading structure
+* keyboard navigation
+* ARIA
+* screen reader compatibility
 
-Jika tidak ada masalah:
-✅ Tidak ada masalah aksesibilitas signifikan ditemukan.
+Kelompokkan berdasarkan severity.
 
 ---
 
 # 🖼️ GAMBAR & MEDIA
 
 Evaluasi:
-- Broken image
-- Missing alt text
-- Lazy loading
-- Ukuran gambar
-- Format modern (WebP/AVIF)
-- Video/media optimization
 
-Jika tidak ada masalah:
-✅ Tidak ada masalah gambar/media ditemukan.
+* broken image
+* missing alt
+* ukuran gambar
+* lazy loading
+* modern image format
 
 ---
 
 # 🔐 ANALISIS SECURITY DASAR
 
 Cek indikasi:
-- Exposed secret
-- Insecure header
-- Open endpoint
-- Auth issue
-- XSS indication
-- CSRF issue
-- Dependency risk
-- Sensitive data exposure
 
-Jika tidak ada indikasi:
-✅ Tidak ada indikasi masalah security kritis ditemukan.
+* exposed secret
+* insecure header
+* auth issue
+* XSS indication
+* CSRF indication
+* dependency issue
+
+Jangan membuat klaim berlebihan tanpa bukti.
 
 ---
 
 # 🧠 ANALISA FRONTEND
 
 Analisa:
-- React/Next.js hydration
-- Rendering issue
-- State management issue
-- Tailwind/CSS issue
-- Component re-render
-- Responsive issue
-- Asset bundling
-- Client-side error
 
-Jika tidak ada masalah:
-✅ Tidak ada masalah frontend signifikan ditemukan.
+* React/Next.js hydration
+* rendering issue
+* component issue
+* Tailwind/CSS issue
+* state issue
+* responsive issue
 
 ---
 
 # ⚙️ ANALISA BACKEND/API
 
 Analisa:
-- Failed request
-- Status code abnormal
-- Slow API
-- Validation issue
-- Timeout
-- Database indication
-- API consistency
 
-Jika tidak ada masalah:
-✅ Tidak ada masalah backend/API signifikan ditemukan.
+* failed request
+* slow API
+* abnormal status code
+* validation issue
+* timeout
 
 ---
 
 # 🎯 5 PRIORITAS UTAMA
 
-Urutkan 5 hal PALING penting yang harus segera diperbaiki berdasarkan dampak bisnis dan user experience.
-
-Gunakan format:
-1. [Masalah] → alasan prioritas
-2. ...
-3. ...
-4. ...
-5. ...
+Urutkan 5 masalah paling penting berdasarkan dampak bisnis dan user experience.
 
 ---
 
@@ -333,130 +245,115 @@ Gunakan format:
 Berikan kesimpulan profesional layaknya laporan QA perusahaan software.
 
 Jelaskan:
-- Tingkat kesiapan website
-- Risiko utama
-- Area yang paling perlu improvement
-- Apakah website layak production atau masih perlu banyak perbaikan
 
-Gunakan bahasa natural dan profesional.
-"""
+* tingkat kesiapan website
+* risiko utama
+* area yang paling perlu improvement
+* apakah website layak production
+
+---"""
+
+
+def _score(avg_load_time: float, errors: int, a11y: int) -> int:
+    score = 100
+    if avg_load_time > 3000:
+        score -= 15
+    if avg_load_time > 5000:
+        score -= 15
+    score -= min(errors * 3, 30)
+    score -= min(a11y * 2, 25)
+    return max(score, 0)
 
 
 class AIAnalyzer:
-    """
-    Multi-provider AI analyzer.
+    def __init__(self) -> None:
+        self.api_key = os.getenv("GROQ_API_KEY", "")
+        self.model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
-    Parameters
-    ----------
-    provider : str
-        Pilih: 'claude', 'openai', 'gemini', 'groq'
-    api_key : str
-        API key untuk provider yang dipilih
-    """
+    def _build_prompt(self, data: dict[str, Any]) -> str:
+        formatted_json = json.dumps(data, indent=2, ensure_ascii=False)
+        return ADVANCED_ANALYSIS_PROMPT_TEMPLATE.format(testing_data_json=formatted_json)
 
-    def __init__(self, provider: str = "claude", api_key: str = ""):
-        provider = provider.lower().strip()
-        if provider not in PROVIDERS:
-            raise ValueError(
-                f"Provider '{provider}' tidak dikenal.\n"
-                f"Pilihan tersedia: {', '.join(PROVIDERS.keys())}"
-            )
-        if not api_key:
-            raise ValueError(
-                f"API key kosong untuk provider '{provider}'.\n"
-                "Gunakan --api-key saat menjalankan script."
-            )
-        self.provider = provider
-        self.api_key = api_key
-
-    def analyze(self, result: CheckResult) -> str:
-        prompt = build_prompt(result)
-        dispatch = {
-            "claude": self._analyze_claude,
-            "openai": self._analyze_openai,
-            "gemini": self._analyze_gemini,
-            "groq":   self._analyze_groq,
-        }
-        return dispatch[self.provider](prompt)
-
-    # ── Claude (Anthropic) ────────────────────────────────────────────────────
-    def _analyze_claude(self, prompt: str) -> str:
-        try:
-            import anthropic
-        except ImportError:
-            raise ImportError("Install dulu: pip install anthropic")
-
-        client = anthropic.Anthropic(api_key=self.api_key)
-        msg = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=2500,
-            messages=[{"role": "user", "content": prompt}],
+    def _fallback_markdown(self, report_payload: dict[str, Any], score: int) -> str:
+        summary = report_payload["summary"]
+        return (
+            f"# 🏆 SKOR KESELURUHAN: [{score}/100]\n\n"
+            "⚠️ Perlu validasi manual lebih lanjut. (AI tidak tersedia, fallback lokal aktif)\n\n"
+            "# ⚡ ANALISIS PERFORMA\n"
+            f"- Rata-rata load time: {summary['avg_load_time_ms']} ms.\n"
+            "- Potensi bottleneck: asset besar, request lambat, atau render blocking.\n\n"
+            "# 🐛 BUG & ERROR\n"
+            f"- Console errors: {summary['total_console_errors']}.\n"
+            f"- Failed requests: {summary['total_failed_requests']}.\n\n"
+            "# ♿ AKSESIBILITAS\n"
+            f"- Total isu aksesibilitas dasar: {summary['total_accessibility_issues']}.\n\n"
+            "# 🎯 5 PRIORITAS UTAMA\n"
+            "1. Perbaiki failed request dan error console yang memblokir fitur utama.\n"
+            "2. Optimasi resource statis (gambar, CSS, JS) serta aktifkan caching.\n"
+            "3. Perbaiki aksesibilitas penting: alt text, label form, struktur heading.\n"
+            "4. Validasi form input di frontend + backend untuk menurunkan error submission.\n"
+            "5. Lakukan audit manual keamanan dasar (header security, auth flow, input sanitization).\n\n"
+            "# 📌 KESIMPULAN AKHIR\n"
+            "Website dapat diaudit otomatis dengan baik, namun masih memerlukan perbaikan prioritas sebelum dinilai siap production penuh."
         )
-        return msg.content[0].text
 
-    # ── OpenAI (GPT-4o) ───────────────────────────────────────────────────────
-    def _analyze_openai(self, prompt: str) -> str:
-        try:
-            from openai import OpenAI
-        except ImportError:
-            raise ImportError("Install dulu: pip install openai")
+    def _request_with_retry(self, client: Groq, prompt: str, retries: int = 2) -> str:
+        last_error: Exception | None = None
+        for attempt in range(retries + 1):
+            try:
+                response = client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": "Anda adalah QA engineer senior yang memberikan laporan profesional berbasis bukti."},
+                        {"role": "user", "content": prompt},
+                    ],
+                    temperature=0.2,
+                    max_tokens=1800,
+                )
+                return (response.choices[0].message.content or "").strip()
+            except Exception as exc:
+                last_error = exc
+                if attempt == retries:
+                    break
+                time.sleep(1.0)
+        raise RuntimeError(f"Groq request failed after retry: {last_error}")
 
-        client = OpenAI(api_key=self.api_key)
-        response = client.chat.completions.create(
-            model="gpt-4o",
-            max_tokens=2500,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        return response.choices[0].message.content
+    def analyze(self, report_payload: dict[str, Any]) -> dict[str, Any]:
+        perf = report_payload["summary"]["avg_load_time_ms"]
+        err = report_payload["summary"]["total_console_errors"] + report_payload["summary"]["total_failed_requests"]
+        a11y = report_payload["summary"]["total_accessibility_issues"]
+        local_score = _score(perf, err, a11y)
 
-    # ── Google Gemini ─────────────────────────────────────────────────────────
-    def _analyze_gemini(self, prompt: str) -> str:
-        # Coba pakai package baru dulu, fallback ke package lama
-        try:
-            from google import genai
-            client = genai.Client(api_key=self.api_key)
-            response = client.models.generate_content(
-                model="gemini-2.0-flash",
-                contents=prompt,
-            )
-            return response.text
-        except ImportError:
-            pass  # Package baru tidak ada, coba yang lama
-
-        try:
-            import google.generativeai as genai
-        except ImportError:
-            raise ImportError(
-                "Install dulu salah satu:\n"
-                "  pip install google-genai          (package baru)\n"
-                "  pip install google-generativeai   (package lama)"
-            )
-
-        import warnings
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")  # Sembunyikan FutureWarning
-            genai.configure(api_key=self.api_key)
-            # Coba model terbaru yang tersedia
-            for model_name in ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-pro"]:
-                try:
-                    model = genai.GenerativeModel(model_name)
-                    response = model.generate_content(prompt)
-                    return response.text
-                except Exception:
-                    continue
-            raise RuntimeError("Tidak ada model Gemini yang tersedia. Cek API key kamu.")
-
-    # ── Groq (Llama 3.3 — Gratis!) ───────────────────────────────────────────
-    def _analyze_groq(self, prompt: str) -> str:
-        try:
-            from groq import Groq
-        except ImportError:
-            raise ImportError("Install dulu: pip install groq")
+        if not self.api_key:
+            fallback = self._fallback_markdown(report_payload, local_score)
+            return {
+                "score": local_score,
+                "analysis": "GROQ_API_KEY tidak tersedia. Menggunakan analisis lokal berbasis rule.",
+                "recommendations": [
+                    "Perbaiki console error dan failed request terlebih dahulu.",
+                    "Optimalkan asset statis (gambar, CSS, JS).",
+                    "Tambahkan label/alt text untuk aksesibilitas.",
+                ],
+                "markdown_report": fallback,
+            }
 
         client = Groq(api_key=self.api_key)
-        response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            max_tokens=2500,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        return response.choices[0].message.content
+        prompt = self._build_prompt(report_payload)
+
+        try:
+            raw = self._request_with_retry(client, prompt, retries=2)
+            markdown_report = raw if raw else self._fallback_markdown(report_payload, local_score)
+            return {
+                "score": local_score,
+                "analysis": "Analisis Groq berhasil dibuat.",
+                "recommendations": [],
+                "markdown_report": markdown_report,
+            }
+        except Exception as exc:
+            fallback = self._fallback_markdown(report_payload, local_score)
+            return {
+                "score": local_score,
+                "analysis": f"Groq gagal dipanggil, fallback lokal aktif: {exc}",
+                "recommendations": ["Cek GROQ_API_KEY, model, dan koneksi jaringan."],
+                "markdown_report": fallback,
+            }
