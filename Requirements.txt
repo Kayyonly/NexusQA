@@ -1,9 +1,4 @@
 playwright>=1.44.0
 rich>=13.7.0
 python-dotenv>=1.0.0       # untuk baca .env otomatis
-
-# Install sesuai provider yang kamu pakai:
-anthropic>=0.25.0          # untuk --provider claude
-openai>=1.30.0             # untuk --provider openai
-google-genai>=1.0.0        # untuk --provider gemini (package baru!)
 groq>=0.9.0                # untuk --provider groq (GRATIS!)
