@@ -12,36 +12,51 @@ from rich.tree import Tree
 
 from ai_agent.agent import AutonomousTestingAgent
 from analyzer import AIAnalyzer
+from auth.auth_crawler import AuthCrawler
+from auth.auth_manager import AuthManager
+from auth.auth_tester import AuthTester
+from auth.session_manager import SessionManager
 from checker import WebsiteChecker
 from interaction.interaction_tester import InteractionTester
 from report import build_report, write_reports
+from responsive.responsive_tester import ResponsiveTester
 from smart_crawler.smart_crawler import SmartCrawlerConfig, SmartWebsiteCrawler
 from utils import ensure_dirs, retry_async, setup_logger, slugify_url
 
 BANNER = """
 [bold cyan]╔══════════════════════════════════════════╗
-║         🤖 TOOLS WEBSITE REVIEW           ║
+║         🤖 TOOLS WEBSITE REVIEW          ║
 ╚══════════════════════════════════════════╝[/bold cyan]
 """
 
 EXIT_COMMANDS = {"exit", "quit", "q"}
 
 
-async def run(url: str, max_pages: int) -> tuple[str, str, dict]:
+async def run(url: str, max_pages: int, auth_config: dict | None = None) -> tuple[str, str, dict]:
     ensure_dirs()
     logger = setup_logger()
     checker = WebsiteChecker()
     interaction_tester = InteractionTester()
     analyzer = AIAnalyzer()
     agent = AutonomousTestingAgent(max_actions=18)
+    responsive_tester = ResponsiveTester()
+    auth_manager = AuthManager(auth_config or {"enabled": False})
+    session_manager = SessionManager()
+    auth_crawler = AuthCrawler()
+    auth_tester = AuthTester()
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context(ignore_https_errors=True)
+        session_options = session_manager.load() or {}
+        context = await browser.new_context(ignore_https_errors=True, **session_options)
+
+        auth_result = await auth_manager.login(context, url)
+        if auth_result.get("status") == "success":
+            await session_manager.save(context)
 
         crawler = SmartWebsiteCrawler(url, SmartCrawlerConfig(max_pages=max_pages, max_depth=3))
         crawl_result = await retry_async(crawler.crawl, context, retries=1, delay=1)
-        pages_to_check = crawl_result.pages
+        pages_to_check = auth_crawler.prioritize(crawl_result.pages)
         logger.info("Crawled %s pages", len(pages_to_check))
 
         page_results = []
@@ -56,10 +71,22 @@ async def run(url: str, max_pages: int) -> tuple[str, str, dict]:
             logger.info("Checked page: %s", page_url)
 
         agent_result = await agent.run(context, url)
+        responsive_result = await responsive_tester.test_pages(p, browser, pages_to_check)
+        auth_test_result = await auth_tester.test_dashboard(context, pages_to_check) if auth_result.get("status") == "success" else {}
+        auth_result["session"] = session_manager.inspect_state()
+        auth_result["protected_routes"] = auth_crawler.summarize(pages_to_check)
+        auth_result.update(auth_test_result)
 
         await browser.close()
 
-    report_payload = build_report(page_results, interaction_results, crawl_result=crawl_result.__dict__, agent_session=agent_result)
+    report_payload = build_report(
+        page_results,
+        interaction_results,
+        crawl_result=crawl_result.__dict__,
+        agent_session=agent_result,
+        responsive_result=responsive_result,
+    )
+    report_payload["authenticated_testing"] = auth_result
     ai_result = analyzer.analyze(report_payload)
     ai_result["raw_report"] = report_payload
     base_name = "website_review_" + datetime.utcnow().strftime("%Y%m%d_%H%M%S")
@@ -78,17 +105,16 @@ def _read_interactive_url(console: Console) -> str | None:
     return raw
 
 
-async def _run_single_session(console: Console, target_url: str, max_pages: int) -> None:
+async def _run_single_session(console: Console, target_url: str, max_pages: int, auth_config: dict | None = None) -> None:
     console.print("[cyan]🌐 Membuka website...[/cyan]")
     console.print("[cyan]⚡ Mengukur performa...[/cyan]")
     console.print("[cyan]🐛 Mendeteksi error...[/cyan]")
     console.print("[cyan]🧪 Testing interaction...[/cyan]")
     console.print("[cyan]🕷️ Crawling website...[/cyan]")
-    txt_path, json_path, ai_result = await run(target_url, max_pages)
+    txt_path, json_path, ai_result = await run(target_url, max_pages, auth_config)
     raw_payload = ai_result.get("raw_report", {})
     _render_tools_summary(console, raw_payload)
-    _render_technical_explanation(console, raw_payload)
-    console.print(Rule("🤖HASIL ANALISIS WEB", style="green"))
+    _render_technical_explanation(console, raw_payload) 
     ai_markdown = ai_result.get("markdown_report") or ai_result.get("analysis") or "Analisis tidak tersedia."
 
     console.print(Panel(Markdown(ai_markdown), title="HASIL ANALISIS WEB🤖", border_style="green", expand=True))
@@ -173,16 +199,46 @@ def _render_technical_explanation(console: Console, payload: dict) -> None:
     screenshots.add("Screenshot interaction dan AI agent tersimpan di folder screenshots/")
 
     responsive = tree.add("📱 Responsive Test")
-    responsive.add("Belum ada viewport matrix test otomatis; saat ini pengujian dilakukan pada context default browser.")
+    responsive_payload = payload.get("responsive_testing", {})
+    devices = responsive_payload.get("devices", {})
+    responsive.add(
+        f"Desktop/Tablet/Mobile checks: {len(devices.get('desktop', []))}/{len(devices.get('tablet', []))}/{len(devices.get('mobile', []))}"
+    )
+    responsive.add(f"Responsive videos: {len([v for v in responsive_payload.get('video_paths', []) if v])}")
+    
+    auth_payload = payload.get("authenticated_testing", {})
+    auth_node = tree.add("🔐 Auth Test")
+    auth_node.add(f"Login status: {auth_payload.get('status', 'skipped')}")
+    auth_node.add(f"Cookie/session: {auth_payload.get('session', {}).get('cookies', 0)}")
+    auth_node.add(f"Dashboard loaded: {auth_payload.get('dashboard_loaded', False)}")
 
     console.print(Rule("⚙️ PENJELASAN TEKNIS", style="bright_blue"))
     console.print(tree)
 
 
+
+def _build_auth_config(args) -> dict:
+    return {
+        "enabled": bool(args and args.auth_enabled),
+        "login_url": getattr(args, "login_url", ""),
+        "username": getattr(args, "auth_username", ""),
+        "password": getattr(args, "auth_password", ""),
+        "username_selector": getattr(args, "username_selector", "input[type=email],input[name*=email i],input[name*=user i]"),
+        "password_selector": getattr(args, "password_selector", "input[type=password]"),
+        "submit_selector": getattr(args, "submit_selector", "button[type=submit]")
+    }
+
 async def main() -> None:
     parser = argparse.ArgumentParser(description="AI Website Review Bot")
     parser.add_argument("--url", required=False, help="Target URL")
     parser.add_argument("--max-pages", type=int, default=5, help="Max pages to crawl")
+    parser.add_argument("--auth-enabled", action="store_true", help="Enable authenticated testing")
+    parser.add_argument("--login-url", default="", help="Login URL")
+    parser.add_argument("--auth-username", default="", help="Login username/email")
+    parser.add_argument("--auth-password", default="", help="Login password")
+    parser.add_argument("--username-selector", default="input[type=email],input[name*=email i],input[name*=user i]")
+    parser.add_argument("--password-selector", default="input[type=password]")
+    parser.add_argument("--submit-selector", default="button[type=submit]")
     args = parser.parse_args()
 
     console = Console()
@@ -190,7 +246,7 @@ async def main() -> None:
 
     try:
         if args.url:
-            await _run_single_session(console, args.url, args.max_pages)
+            await _run_single_session(console, args.url, args.max_pages, _build_auth_config(args))
             return
 
         # Persistent interactive mode
@@ -201,7 +257,7 @@ async def main() -> None:
                 break
             if target_url == "":
                 continue
-            await _run_single_session(console, target_url, args.max_pages)
+            await _run_single_session(console, target_url, args.max_pages, _build_auth_config(args))
             console.print("\n" + "─" * 58 + "\n")
 
     except KeyboardInterrupt:

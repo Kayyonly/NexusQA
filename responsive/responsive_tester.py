@@ -22,6 +22,9 @@ class ResponsiveTester:
 
     async def test_pages(self, playwright: Playwright, browser, pages: list[str]) -> dict:
         Path("screenshots/responsive").mkdir(parents=True, exist_ok=True)
+        Path("screenshots/desktop").mkdir(parents=True, exist_ok=True)
+        Path("screenshots/tablet").mkdir(parents=True, exist_ok=True)
+        Path("screenshots/mobile").mkdir(parents=True, exist_ok=True)
         results: dict = {"desktop": [], "tablet": [], "mobile": []}
         video_paths: list[str] = []
 
@@ -31,7 +34,7 @@ class ResponsiveTester:
             Path(video_dir).mkdir(parents=True, exist_ok=True)
             context = await browser.new_context(**self.viewport_manager.context_options(profile, playwright, video_dir))
 
-            for url in pages[:5]:
+            for url in pages[:10]:
                 page = await context.new_page()
                 await page.goto(url, wait_until="domcontentloaded", timeout=45000)
                 await page.wait_for_timeout(800)

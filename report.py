@@ -70,7 +70,9 @@ def write_reports(base_name: str, payload: dict[str, Any], ai_result: dict[str, 
     issues = crawler.get("issues", {})
     agent = payload.get("ai_agent_session", {})
     responsive = payload.get("responsive_testing", {})
+    ai_debug = payload.get("ai_analysis", {}).get("summary_debug", {})
     devices = responsive.get("devices", {})
+    auth = payload.get("authenticated_testing", {})
     lines = [
         "AI WEBSITE REVIEW BOT REPORT",
         "=" * 40,
@@ -78,6 +80,12 @@ def write_reports(base_name: str, payload: dict[str, Any], ai_result: dict[str, 
         f"Pages Crawled: {summary['pages_crawled']}",
         f"Avg Load Time: {summary['avg_load_time_ms']} ms",
         f"Console Errors: {summary['total_console_errors']}",
+        "",
+        "🧠 AI SUMMARY",
+        "-" * 40,
+        f"Payload size: {ai_debug.get('payload_size', 0)} chars",
+        f"Console errors summarized: {ai_debug.get('console_errors_summarized', '0/0')}",
+        f"Failed requests summarized: {ai_debug.get('failed_requests_summarized', '0/0')}",
         "",
         "🕷️ SMART CRAWLER",
         "-" * 40,
@@ -101,10 +109,42 @@ def write_reports(base_name: str, payload: dict[str, Any], ai_result: dict[str, 
         f"Mobile checks: {len(devices.get('mobile', []))}",
         f"Session videos: {len([v for v in responsive.get('video_paths', []) if v])}",
         "",
+        "Device findings:",
+        "",
+        "🔐 AUTHENTICATED TESTING",
+        "-" * 40,
+        f"Login status: {auth.get('status', 'skipped')}",
+        f"Cookie/session: {auth.get('session', {}).get('cookies', 0)} cookies",
+        f"Auth token detected: {auth.get('auth_token_exists', False)}",
+        f"Protected routes found: {auth.get('protected_routes', {}).get('protected_route_count', 0)}",
+        "",
         "🧪 INTERACTION TESTING",
         "-" * 40,
         f"Buttons total/clicked/failed: {interaction.get('buttons_total',0)}/{interaction.get('buttons_clicked',0)}/{interaction.get('buttons_failed',0)}",
     ]
+
+
+    for group in ["desktop", "tablet", "mobile"]:
+        for item in devices.get(group, []):
+            status_icon = "✅" if item.get("status") == "ok" else "⚠️"
+            issue_map = item.get("issue_map", {})
+            top_issue = next((k for k, v in issue_map.items() if v), "layout_normal")
+            lines.append(f"{status_icon} {item.get('device')} | {item.get('url')} | {top_issue}")
+    
+
+    for api in auth.get("authenticated_api", [])[:15]:
+        lines.append(f"API {api.get('url')} -> {api.get('status')}")
+
+    for shot in auth.get("screenshots", []):
+        lines.append(f"- {shot}")
+    if auth.get("dashboard_screenshot"):
+        lines.append(f"- {auth.get('dashboard_screenshot')}")
+    if auth.get("protected_route_screenshot"):
+        lines.append(f"- {auth.get('protected_route_screenshot')}")
+
+    lines.append("Auth logs:")
+    for entry in auth.get("auth_logs", [])[:20]:
+        lines.append(f"- {entry.get('time')} | {entry.get('event')} | {entry.get('detail')}")
 
     Path(txt_path).write_text("\n".join(lines), encoding="utf-8")
     return txt_path, json_path

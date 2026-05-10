@@ -5,71 +5,51 @@ from typing import Any
 
 from groq import Groq
 
+from ai.summary_builder import SummaryBuilder
 
-ADVANCED_ANALYSIS_PROMPT_TEMPLATE = """Kamu adalah seorang Senior QA Engineer sekaligus Senior Web Developer dengan pengalaman industri bertahun-tahun dalam:
 
-* Website Quality Assurance
-* Automation Testing
-* Frontend & Backend Debugging
-* Performance Optimization
-* Accessibility Audit
-* Security Review
-* Modern Web Framework Analysis (React, Next.js, Vue, Nuxt, Laravel, Express, dll)
+ADVANCED_ANALYSIS_PROMPT_TEMPLATE = """Anda adalah Senior QA Engineer dan Senior Web Developer.
 
-Tugas kamu adalah menganalisa hasil testing otomatis website secara mendalam dan membuat laporan QA profesional dengan bahasa Indonesia yang natural, halus, mudah dipahami manusia, dan tidak terdengar seperti robot.
+Analisa hasil testing website berikut dan buat laporan QA profesional dalam Bahasa Indonesia yang natural, jelas, dan mudah dipahami.
+
+Fokus analisa:
+
+* Performance
+* Bug & error
+* UI/UX
+* Responsive issue
+* Accessibility
+* API/network issue
+* Security basic issue
+* Frontend rendering/hydration
+* Form validation
+* Asset/media issue
+* SEO basic
+
+Jangan membuat asumsi tanpa bukti.
+Jika data kurang jelas, tulis:
+⚠️ Perlu validasi manual lebih lanjut.
+
+Gunakan severity:
+
+* CRITICAL
+* HIGH
+* MEDIUM
+* LOW
 
 ========================================
-📥 DATA HASIL TESTING
-=====================
+DATA TESTING
+============
 
 {testing_data_json}
 
 ========================================
-🎯 TUJUAN ANALISA
-=================
+FORMAT OUTPUT
+=============
 
-Lakukan analisa menyeluruh terhadap:
+# 🏆 SKOR KESELURUHAN: X/100
 
-* Performa website
-* Bug & error
-* UI/UX
-* Form validation
-* Accessibility
-* API/network issue
-* Security issue
-* Asset/media issue
-* Responsiveness
-* Console error
-* Failed request
-* Rendering/hydration issue
-* SEO basic issue
-* Best practice modern web
-
-Jika ada kemungkinan false positive dari automation testing, jelaskan juga.
-
-Jangan membuat asumsi berlebihan tanpa bukti.
-Jika informasi kurang jelas, tandai sebagai:
-“⚠️ Perlu validasi manual lebih lanjut.”
-
-Gunakan gaya bahasa:
-
-* Profesional
-* Natural
-* Halus
-* Mudah dipahami
-* Tidak terlalu kaku
-* Tidak menghakimi developer
-* Fokus pada solusi konstruktif
-
-========================================
-📊 FORMAT OUTPUT
-================
-
-# 🏆 SKOR KESELURUHAN: [X/100]
-
-Berikan penilaian umum kondisi website dalam 2–4 kalimat.
-
-Tambahkan tabel penilaian:
+Berikan ringkasan kondisi website secara profesional.
 
 | Kategori        | Skor  |
 | --------------- | ----- |
@@ -84,36 +64,20 @@ Tambahkan tabel penilaian:
 
 # ⚡ ANALISIS PERFORMA
 
-Analisa:
+Bahas:
 
-* Load time
-* FCP
-* LCP
-* Render performance
+* load time
+* FCP/LCP
+* render performance
 * API latency
-* Asset loading
-* Bottleneck utama
-
-Berikan:
-
-* apa yang sudah baik
-* apa yang perlu optimasi
-* dampaknya ke UX & SEO
-* rekomendasi realistis
-
-Jika tidak ada masalah:
-✅ Tidak ada masalah performa signifikan ditemukan.
+* asset loading
+* bottleneck
+* dampak UX & SEO
+* rekomendasi optimasi
 
 ---
 
 # 🐛 BUG & ERROR
-
-Gunakan severity:
-
-* CRITICAL
-* HIGH
-* MEDIUM
-* LOW
 
 Untuk setiap issue gunakan format:
 
@@ -121,49 +85,32 @@ Untuk setiap issue gunakan format:
 
 ### Ringkasan
 
-...
-
 ### Detail Teknis
-
-...
 
 ### Dampak
 
-...
-
 ### Kemungkinan Penyebab
 
-...
-
-### Cara Fix / Rekomendasi
-
-...
+### Cara Fix
 
 ### Prioritas
 
-...
-
-Jika tidak ada bug:
+Jika tidak ada masalah:
 ✅ Tidak ada bug/error signifikan ditemukan.
 
 ---
 
-# 📋 UI & FORM
+# 📋 UI & RESPONSIVE
 
 Evaluasi:
 
-* form
-* validation
-* responsive
-* layout
-* usability
-* mobile issue
+* form & validation
+* responsive layout
 * overflow
 * hydration mismatch
+* usability
+* mobile issue
 * layout shift
-
-Jika tidak ada masalah:
-✅ Tidak ada masalah UI/form signifikan ditemukan.
 
 ---
 
@@ -174,82 +121,54 @@ Evaluasi:
 * alt text
 * semantic HTML
 * heading structure
-* keyboard navigation
 * ARIA
-* screen reader compatibility
-
-Kelompokkan berdasarkan severity.
+* keyboard navigation
 
 ---
 
-# 🖼️ GAMBAR & MEDIA
-
-Evaluasi:
-
-* broken image
-* missing alt
-* ukuran gambar
-* lazy loading
-* modern image format
-
----
-
-# 🔐 ANALISIS SECURITY DASAR
+# 🔐 SECURITY DASAR
 
 Cek indikasi:
 
 * exposed secret
 * insecure header
+* XSS/CSRF indication
 * auth issue
-* XSS indication
-* CSRF indication
-* dependency issue
+* dependency risk
 
 Jangan membuat klaim berlebihan tanpa bukti.
 
 ---
 
-# 🧠 ANALISA FRONTEND
+# ⚙️ FRONTEND & BACKEND
 
 Analisa:
 
 * React/Next.js hydration
 * rendering issue
-* component issue
-* Tailwind/CSS issue
-* state issue
-* responsive issue
-
----
-
-# ⚙️ ANALISA BACKEND/API
-
-Analisa:
-
+* component/CSS issue
 * failed request
-* slow API
 * abnormal status code
-* validation issue
+* slow API
 * timeout
 
 ---
 
 # 🎯 5 PRIORITAS UTAMA
 
-Urutkan 5 masalah paling penting berdasarkan dampak bisnis dan user experience.
+Urutkan 5 masalah paling penting berdasarkan dampak bisnis & UX.
 
 ---
 
 # 📌 KESIMPULAN AKHIR
 
-Berikan kesimpulan profesional layaknya laporan QA perusahaan software.
-
 Jelaskan:
 
-* tingkat kesiapan website
+* kesiapan website
 * risiko utama
-* area yang paling perlu improvement
-* apakah website layak production
+* area yang perlu improvement
+* apakah layak production
+
 
 ---"""
 
@@ -269,6 +188,7 @@ class AIAnalyzer:
     def __init__(self) -> None:
         self.api_key = os.getenv("GROQ_API_KEY", "")
         self.model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+        self.summary_builder = SummaryBuilder(max_payload_chars=20000)
 
     def _build_prompt(self, data: dict[str, Any]) -> str:
         formatted_json = json.dumps(data, indent=2, ensure_ascii=False)
@@ -319,6 +239,7 @@ class AIAnalyzer:
         raise RuntimeError(f"Groq request failed after retry: {last_error}")
 
     def analyze(self, report_payload: dict[str, Any]) -> dict[str, Any]:
+        ai_summary, summary_debug = self.summary_builder.build_summary(report_payload)
         perf = report_payload["summary"]["avg_load_time_ms"]
         err = report_payload["summary"]["total_console_errors"] + report_payload["summary"]["total_failed_requests"]
         a11y = report_payload["summary"]["total_accessibility_issues"]
@@ -329,6 +250,8 @@ class AIAnalyzer:
             return {
                 "score": local_score,
                 "analysis": "GROQ_API_KEY tidak tersedia. Menggunakan analisis lokal berbasis rule.",
+                "ai_summary": ai_summary,
+                "summary_debug": summary_debug,
                 "recommendations": [
                     "Perbaiki console error dan failed request terlebih dahulu.",
                     "Optimalkan asset statis (gambar, CSS, JS).",
@@ -346,10 +269,13 @@ class AIAnalyzer:
             return {
                 "score": local_score,
                 "analysis": "Analisis Groq berhasil dibuat.",
+                "ai_summary": ai_summary,
+                "summary_debug": summary_debug,
                 "recommendations": [],
                 "markdown_report": markdown_report,
             }
         except Exception as exc:
+            print(f"\n[DEBUG] Groq error: {exc}\n")
             fallback = self._fallback_markdown(report_payload, local_score)
             return {
                 "score": local_score,
