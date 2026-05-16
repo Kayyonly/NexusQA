@@ -190,8 +190,8 @@ class AIAnalyzer:
         self.model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
         self.summary_builder = SummaryBuilder(max_payload_chars=20000)
 
-    def _build_prompt(self, data: dict[str, Any]) -> str:
-        formatted_json = json.dumps(data, indent=2, ensure_ascii=False)
+    def _build_prompt(self, summary_data: dict[str, Any]) -> str:
+        formatted_json = json.dumps(summary_data, indent=2, ensure_ascii=False)
         return ADVANCED_ANALYSIS_PROMPT_TEMPLATE.format(testing_data_json=formatted_json)
 
     def _fallback_markdown(self, report_payload: dict[str, Any], score: int) -> str:
@@ -261,7 +261,7 @@ class AIAnalyzer:
             }
 
         client = Groq(api_key=self.api_key)
-        prompt = self._build_prompt(report_payload)
+        prompt = self._build_prompt(ai_summary)
 
         try:
             raw = self._request_with_retry(client, prompt, retries=2)
