@@ -20,7 +20,15 @@ class ResponsiveTester:
         self.session = SessionRecorder()
         self.replay = ReplayManager()
 
-    async def test_pages(self, playwright: Playwright, browser, pages: list[str]) -> dict:
+    async def test_pages(
+        self,
+        playwright: Playwright,
+        browser,
+        pages: list[str],
+        include_groups: list[str] | None = None,
+        max_pages: int = 10,
+        record_video: bool = True,
+    ) -> dict:
         Path("screenshots/responsive").mkdir(parents=True, exist_ok=True)
         Path("screenshots/desktop").mkdir(parents=True, exist_ok=True)
         Path("screenshots/tablet").mkdir(parents=True, exist_ok=True)
@@ -28,13 +36,17 @@ class ResponsiveTester:
         results: dict = {"desktop": [], "tablet": [], "mobile": []}
         video_paths: list[str] = []
 
+        groups = set(include_groups or ["desktop", "tablet", "mobile"])
+
         for profile in DEVICE_PROFILES:
+            if profile["group"] not in groups:
+                continue
             group = profile["group"]
             video_dir = f"videos/{group}"
             Path(video_dir).mkdir(parents=True, exist_ok=True)
             context = await browser.new_context(**self.viewport_manager.context_options(profile, playwright, video_dir))
 
-            for url in pages[:10]:
+            for url in pages[:max_pages]:
                 page = await context.new_page()
                 await page.goto(url, wait_until="domcontentloaded", timeout=45000)
                 await page.wait_for_timeout(800)
@@ -48,7 +60,8 @@ class ResponsiveTester:
                     analysis["bug_screenshot"] = bug_shot
 
                 results[group].append({"device": profile["name"], "url": url, "screenshot": shot, **analysis})
-                video_paths.append(await VideoRecorder.finalize_page_video(page))
+                if record_video:
+                    video_paths.append(await VideoRecorder.finalize_page_video(page))
 
             await context.close()
 
