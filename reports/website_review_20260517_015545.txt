@@ -1,0 +1,52 @@
+AI WEBSITE REVIEW BOT REPORT
+========================================
+Generated: 2026-05-17T01:55:39.575149Z
+Pages Crawled: 0
+Avg Load Time: 0.0 ms
+Console Errors: 0
+
+🧠 AI SUMMARY
+----------------------------------------
+Payload size: 0 chars
+Console errors summarized: 0/0
+Failed requests summarized: 0/0
+
+🕷️ SMART CRAWLER
+----------------------------------------
+Total halaman: 0
+Total route: 0
+Total internal link: 0
+Total external link: 0
+Important pages detected: 0
+Broken route: 2 | Dead link: 0 | Duplicate: 0
+
+🤖 AI AGENT SESSION
+----------------------------------------
+Actions performed: 0
+Decisions logged: 0
+Autonomous findings: 0
+
+📱 RESPONSIVE TESTING
+----------------------------------------
+Desktop checks: 0
+Tablet checks: 0
+Mobile checks: 0
+Session videos: 0
+
+Device findings:
+
+🔐 AUTHENTICATED TESTING
+----------------------------------------
+Login status: skipped
+Cookie/session: 0 cookies
+Auth token detected: False
+Protected routes found: 0
+
+🎥 VIDEO RECORDING
+----------------------------------------
+Total videos: 0
+
+🧪 INTERACTION TESTING
+----------------------------------------
+Buttons total/clicked/failed: 0/0/0
+Auth logs:

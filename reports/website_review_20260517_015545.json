@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-05-17T01:55:39.575149Z",
+  "summary": {
+    "pages_crawled": 0,
+    "avg_load_time_ms": 0.0,
+    "total_console_errors": 0,
+    "total_failed_requests": 0,
+    "total_broken_images": 0,
+    "total_accessibility_issues": 0
+  },
+  "smart_crawler": {
+    "pages": [],
+    "issues": {
+      "broken_routes": [
+        "https://igdown.my.id/",
+        "https://igdown.my.id/sitemap.xml"
+      ],
+      "duplicate_pages": [],
+      "dead_links": [],
+      "redirect_loops": []
+    },
+    "structure": {
+      "total_routes": 0,
+      "total_internal_links": 0,
+      "total_external_links": 0
+    },
+    "important_pages": {}
+  },
+  "interaction_testing": {
+    "summary": {
+      "pages_tested": 0,
+      "buttons_total": 0,
+      "buttons_clicked": 0,
+      "buttons_failed": 0,
+      "forms_tested": 0,
+      "validation_issues": 0,
+      "broken_forms": 0,
+      "broken_links": 0,
+      "dead_routes": 0,
+      "redirect_issues": 0,
+      "modal_issues": 0,
+      "dropdown_issues": 0,
+      "interaction_timeouts": 0
+    },
+    "details": []
+  },
+  "ai_agent_session": {
+    "status": "skipped",
+    "reason": "disabled_by_mode"
+  },
+  "responsive_testing": {
+    "devices": {
+      "desktop": [],
+      "tablet": [],
+      "mobile": []
+    },
+    "session_recording": {
+      "steps": 0,
+      "video_count": 0,
+      "timeline": [],
+      "videos": []
+    },
+    "video_paths": "[Circular Reference]"
+  },
+  "pages": [],
+  "authenticated_testing": {
+    "status": "skipped",
+    "reason": "disabled_by_mode"
+  },
+  "ai_analysis": {
+    "score": 100,
+    "analysis": "Groq gagal dipanggil, fallback lokal aktif: Groq request failed after retry: Error code: 401 - {'error': {'message': 'Invalid API Key', 'type': 'invalid_request_error', 'code': 'invalid_api_key'}}",
+    "recommendations": [
+      "Cek GROQ_API_KEY, model, dan koneksi jaringan."
+    ],
+    "markdown_report": "# 🏆 SKOR KESELURUHAN: [100/100]\n\n⚠️ Perlu validasi manual lebih lanjut. (AI tidak tersedia, fallback lokal aktif)\n\n# ⚡ ANALISIS PERFORMA\n- Rata-rata load time: 0.0 ms.\n- Potensi bottleneck: asset besar, request lambat, atau render blocking.\n\n# 🐛 BUG & ERROR\n- Console errors: 0.\n- Failed requests: 0.\n\n# ♿ AKSESIBILITAS\n- Total isu aksesibilitas dasar: 0.\n\n# 🎯 5 PRIORITAS UTAMA\n1. Perbaiki failed request dan error console yang memblokir fitur utama.\n2. Optimasi resource statis (gambar, CSS, JS) serta aktifkan caching.\n3. Perbaiki aksesibilitas penting: alt text, label form, struktur heading.\n4. Validasi form input di frontend + backend untuk menurunkan error submission.\n5. Lakukan audit manual keamanan dasar (header security, auth flow, input sanitization).\n\n# 📌 KESIMPULAN AKHIR\nWebsite dapat diaudit otomatis dengan baik, namun masih memerlukan perbaikan prioritas sebelum dinilai siap production penuh.",
+    "raw_report": "[Circular Reference]"
+  }
+}

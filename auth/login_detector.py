@@ -20,7 +20,7 @@ class LoginDetector:
     async def wait_for_spa_hydration(self, page) -> None:
         await page.wait_for_load_state("domcontentloaded", timeout=20000)
         try:
-            await page.wait_for_load_state("networkidle", timeout=10000)
+            await page.wait_for_load_state("domcontentloaded", timeout=20000)
         except Exception:
             pass
         await page.wait_for_timeout(900)

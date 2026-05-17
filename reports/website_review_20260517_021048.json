@@ -1,0 +1,3567 @@
+{
+  "generated_at": "2026-05-17T02:10:41.159772Z",
+  "summary": {
+    "pages_crawled": 10,
+    "avg_load_time_ms": 200.1,
+    "total_console_errors": 1,
+    "total_failed_requests": 0,
+    "total_broken_images": 0,
+    "total_accessibility_issues": 3
+  },
+  "smart_crawler": {
+    "pages": [
+      "https://vynra-tune.my.id/",
+      "https://vynra-tune.my.id/profile",
+      "https://vynra-tune.my.id/change-password",
+      "https://vynra-tune.my.id/ai-music",
+      "https://vynra-tune.my.id/history",
+      "https://vynra-tune.my.id/search",
+      "https://vynra-tune.my.id/library",
+      "https://vynra-tune.my.id/developer",
+      "https://vynra-tune.my.id/auth/register",
+      "https://vynra-tune.my.id/auth/login"
+    ],
+    "issues": {
+      "broken_routes": [
+        "https://vynra-tune.my.id/sitemap.xml"
+      ],
+      "duplicate_pages": [],
+      "dead_links": [],
+      "redirect_loops": []
+    },
+    "structure": {
+      "total_routes": 10,
+      "total_internal_links": 51,
+      "total_external_links": 2
+    },
+    "important_pages": {
+      "https://vynra-tune.my.id/profile": {
+        "score": 7,
+        "tags": [
+          "profile"
+        ]
+      },
+      "https://vynra-tune.my.id/search": {
+        "score": 8,
+        "tags": [
+          "search"
+        ]
+      },
+      "https://vynra-tune.my.id/auth/register": {
+        "score": 9,
+        "tags": [
+          "register"
+        ]
+      },
+      "https://vynra-tune.my.id/auth/login": {
+        "score": 10,
+        "tags": [
+          "login"
+        ]
+      }
+    }
+  },
+  "interaction_testing": {
+    "summary": {
+      "pages_tested": 5,
+      "buttons_total": 30,
+      "buttons_clicked": 10,
+      "buttons_failed": 8,
+      "forms_tested": 3,
+      "validation_issues": 0,
+      "broken_forms": 3,
+      "broken_links": 22,
+      "dead_routes": 0,
+      "redirect_issues": 0,
+      "modal_issues": 3,
+      "dropdown_issues": 0,
+      "interaction_timeouts": 0
+    },
+    "details": [
+      {
+        "page_url": "https://vynra-tune.my.id/profile",
+        "buttons_total": 1,
+        "buttons_clicked": 1,
+        "buttons_failed": 0,
+        "forms_tested": 0,
+        "validation_issues": 0,
+        "broken_forms": 0,
+        "broken_links": 3,
+        "dead_routes": 0,
+        "redirect_issues": 0,
+        "modal_issues": 0,
+        "dropdown_issues": 0,
+        "interaction_timeouts": 0,
+        "events": [
+          {
+            "action": "click_button",
+            "selector": "button[0]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/auth?next=%2Fprofile",
+            "url_after": "https://vynra-tune.my.id/auth?next=%2Fprofile",
+            "dom_changed": true,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "modal_open_close",
+            "selector": "modal",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[0]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/auth?next=%2Fprofile",
+            "url_after": "https://vynra-tune.my.id/auth/register",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[1]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/auth/register",
+            "url_after": "https://vynra-tune.my.id/",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[2]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(2)\n    - locator resolved to <a href=\"/ai-music\" class=\"flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-3 text-sm text-white transition hover:bg-white/10\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[3]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/",
+            "url_after": "https://vynra-tune.my.id/history",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[4]",
+            "status": "failed",
+            "message": "Locator.get_attribute: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(4)\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[5]",
+            "status": "failed",
+            "message": "Locator.get_attribute: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(5)\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "infinite_scroll",
+            "selector": "window",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          }
+        ]
+      },
+      {
+        "page_url": "https://vynra-tune.my.id/",
+        "buttons_total": 20,
+        "buttons_clicked": 1,
+        "buttons_failed": 7,
+        "forms_tested": 0,
+        "validation_issues": 0,
+        "broken_forms": 0,
+        "broken_links": 7,
+        "dead_routes": 0,
+        "redirect_issues": 0,
+        "modal_issues": 0,
+        "dropdown_issues": 0,
+        "interaction_timeouts": 0,
+        "events": [
+          {
+            "action": "click_button",
+            "selector": "button[0]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"button, [role='button'], input[type='button'], input[type='submit']\").first\n    - locator resolved to <button aria-label=\"Close sidebar backdrop\" class=\"fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-in-out pointer-events-none opacity-0\"></button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"flex overflow-x-auto no-scrollbar gap-4 px-4 snap-x snap-mandatory scroll-smooth pb-4\">…</div> from <div class=\"space-y-10\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"flex overflow-x-auto no-scrollbar gap-4 px-4 snap-x snap-mandatory scroll-smooth pb-4\">…</div> from <div class=\"space-y-10\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"flex overflow-x-auto no-scrollbar gap-4 px-4 snap-x snap-mandatory scroll-smooth pb-4\">…</div> from <div class=\"space-y-10\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "screenshots/interactions/https_vynra_tune_my_id_button_0_error.png",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[1]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"button, [role='button'], input[type='button'], input[type='submit']\").nth(1)\n    - locator resolved to <button class=\"rounded-full p-2 text-zinc-300 hover:bg-white/10 hover:text-white\">…</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "screenshots/interactions/https_vynra_tune_my_id_button_1_error.png",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[2]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"button, [role='button'], input[type='button'], input[type='submit']\").nth(2)\n    - locator resolved to <button class=\"flex w-full items-center gap-3 rounded-xl border border-red-400/20 bg-red-500/10 px-3 py-3 text-sm text-red-200 transition hover:bg-red-500/20\">…</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "screenshots/interactions/https_vynra_tune_my_id_button_2_error.png",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[3]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/",
+            "url_after": "https://vynra-tune.my.id/",
+            "dom_changed": true,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[4]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"button, [role='button'], input[type='button'], input[type='submit']\").nth(4)\n    - locator resolved to <button class=\"whitespace-nowrap px-5 py-2 rounded-full text-sm font-medium transition-colors border snap-center bg-white/10 hover:bg-white/20 text-white border-white/5\">Chill</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <img loading=\"lazy\" decoding=\"async\" data-nimg=\"fill\" alt=\"User avatar\" class=\"object-cover\" src=\"https://vynra-tune.my.id/default-avatar.png\"/> from <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <img loading=\"lazy\" decoding=\"async\" data-nimg=\"fill\" alt=\"User avatar\" class=\"object-cover\" src=\"https://vynra-tune.my.id/default-avatar.png\"/> from <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> intercepts pointer events\n  - retrying click action\n    - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"rounded-2xl border border-white/10 bg-white/[0.03] p-4\">…</div> from <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <img loading=\"lazy\" decoding=\"async\" data-nimg=\"fill\" alt=\"User avatar\" class=\"object-cover\" src=\"https://vynra-tune.my.id/default-avatar.png\"/> from <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "screenshots/interactions/https_vynra_tune_my_id_button_4_error.png",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[5]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"button, [role='button'], input[type='button'], input[type='submit']\").nth(5)\n    - locator resolved to <button class=\"whitespace-nowrap px-5 py-2 rounded-full text-sm font-medium transition-colors border snap-center bg-white/10 hover:bg-white/20 text-white border-white/5\">Focus</button>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"rounded-2xl border border-white/10 bg-white/[0.03] p-4\">…</div> from <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> intercepts pointer events\n  - retrying click action\n    - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  2 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"rounded-2xl border border-white/10 bg-white/[0.03] p-4\">…</div> from <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "screenshots/interactions/https_vynra_tune_my_id_button_5_error.png",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[6]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"button, [role='button'], input[type='button'], input[type='submit']\").nth(6)\n    - locator resolved to <button class=\"whitespace-nowrap px-5 py-2 rounded-full text-sm font-medium transition-colors border snap-center bg-white/10 hover:bg-white/20 text-white border-white/5\">Commute</button>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"rounded-2xl border border-white/10 bg-white/[0.03] p-4\">…</div> from <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  - retrying click action\n    - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> intercepts pointer events\n  - retrying click action\n    - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  2 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"rounded-2xl border border-white/10 bg-white/[0.03] p-4\">…</div> from <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "screenshots/interactions/https_vynra_tune_my_id_button_6_error.png",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[7]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"button, [role='button'], input[type='button'], input[type='submit']\").nth(7)\n    - locator resolved to <button class=\"whitespace-nowrap px-5 py-2 rounded-full text-sm font-medium transition-colors border snap-center bg-white/10 hover:bg-white/20 text-white border-white/5\">Gaming</button>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"rounded-2xl border border-white/10 bg-white/[0.03] p-4\">…</div> from <aside class=\"fixed left-0 top-0 z-50 h-full w-[82%] max-w-xs border-r border-white/10 bg-[#101114]/95 p-5 shadow-2xl transition-transform duration-300 ease-in-out translate-x-0\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not stable\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <button aria-label=\"Close sidebar backdrop\" class=\"fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-in-out pointer-events-auto opacity-100\"></button> intercepts pointer events\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "screenshots/interactions/https_vynra_tune_my_id_button_7_error.png",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "modal_open_close",
+            "selector": "modal",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[0]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").first\n    - locator resolved to <a href=\"/profile\" class=\"flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-3 text-sm text-white transition hover:bg-white/10\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    5 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[1]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(1)\n    - locator resolved to <a href=\"/change-password\" class=\"flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-3 text-sm text-white transition hover:bg-white/10\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[2]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(2)\n    - locator resolved to <a href=\"/ai-music\" class=\"flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-3 text-sm text-white transition hover:bg-white/10\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[3]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/",
+            "url_after": "https://vynra-tune.my.id/history",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[4]",
+            "status": "failed",
+            "message": "Locator.get_attribute: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(4)\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[5]",
+            "status": "failed",
+            "message": "Locator.get_attribute: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(5)\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[6]",
+            "status": "failed",
+            "message": "Locator.get_attribute: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(6)\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[7]",
+            "status": "failed",
+            "message": "Locator.get_attribute: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(7)\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "infinite_scroll",
+            "selector": "window",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          }
+        ]
+      },
+      {
+        "page_url": "https://vynra-tune.my.id/ai-music",
+        "buttons_total": 5,
+        "buttons_clicked": 4,
+        "buttons_failed": 1,
+        "forms_tested": 1,
+        "validation_issues": 0,
+        "broken_forms": 1,
+        "broken_links": 3,
+        "dead_routes": 0,
+        "redirect_issues": 0,
+        "modal_issues": 1,
+        "dropdown_issues": 0,
+        "interaction_timeouts": 0,
+        "events": [
+          {
+            "action": "click_button",
+            "selector": "button[0]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/ai-music",
+            "url_after": "https://vynra-tune.my.id/ai-music",
+            "dom_changed": true,
+            "console_errors_new": 2,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[1]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/ai-music",
+            "url_after": "https://vynra-tune.my.id/ai-music",
+            "dom_changed": true,
+            "console_errors_new": 2,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[2]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/ai-music",
+            "url_after": "https://vynra-tune.my.id/ai-music",
+            "dom_changed": true,
+            "console_errors_new": 2,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[3]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"button, [role='button'], input[type='button'], input[type='submit']\").nth(3)\n    - locator resolved to <button disabled type=\"submit\" class=\"inline-flex h-11 w-11 items-center justify-center rounded-xl bg-fuchsia-500 text-white transition hover:bg-fuchsia-400 disabled:cursor-not-allowed disabled:opacity-50\">…</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n      - waiting 100ms\n    5 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "screenshots/interactions/https_vynra_tune_my_id_ai_music_button_3_error.png",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[4]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/ai-music",
+            "url_after": "https://vynra-tune.my.id/ai-music",
+            "dom_changed": true,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "modal_open_close",
+            "selector": "modal",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-bs-toggle='modal'], [aria-haspopup='dialog'], button\").first\n    - locator resolved to <button type=\"button\" class=\"rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-zinc-200 transition hover:bg-white/10\">🔥 Lagu trending</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    3 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "form_submit",
+            "selector": "form[0]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 3000ms exceeded.\nCall log:\n  - waiting for locator(\"form\").first.locator(\"button[type='submit'], input[type='submit'], button\").first\n    - locator resolved to <button disabled type=\"submit\" class=\"inline-flex h-11 w-11 items-center justify-center rounded-xl bg-fuchsia-500 text-white transition hover:bg-fuchsia-400 disabled:cursor-not-allowed disabled:opacity-50\">…</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n      - waiting 100ms\n    5 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[0]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/ai-music",
+            "url_after": "https://vynra-tune.my.id/",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[1]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(1)\n    - locator resolved to <a href=\"/change-password\" class=\"flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-3 text-sm text-white transition hover:bg-white/10\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    3 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[2]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(2)\n    - locator resolved to <a href=\"/ai-music\" class=\"flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-3 text-sm text-white transition hover:bg-white/10\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[3]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(3)\n    - locator resolved to <a href=\"/history\" class=\"transition-colors hover:text-white\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "infinite_scroll",
+            "selector": "window",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          }
+        ]
+      },
+      {
+        "page_url": "https://vynra-tune.my.id/auth/login",
+        "buttons_total": 2,
+        "buttons_clicked": 2,
+        "buttons_failed": 0,
+        "forms_tested": 1,
+        "validation_issues": 0,
+        "broken_forms": 1,
+        "broken_links": 5,
+        "dead_routes": 0,
+        "redirect_issues": 0,
+        "modal_issues": 1,
+        "dropdown_issues": 0,
+        "interaction_timeouts": 0,
+        "events": [
+          {
+            "action": "click_button",
+            "selector": "button[0]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/auth/login",
+            "url_after": "https://vynra-tune.my.id/auth/login",
+            "dom_changed": true,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[1]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/auth/login",
+            "url_after": "https://vynra-tune.my.id/auth/login",
+            "dom_changed": true,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "modal_open_close",
+            "selector": "modal",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-bs-toggle='modal'], [aria-haspopup='dialog'], button\").first\n    - locator resolved to <button type=\"submit\" class=\"w-full rounded-2xl bg-blue-500 py-3 text-sm font-semibold text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-60\">Lanjutkan</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <button class=\"flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-white text-black font-semibold transition hover:bg-white/90 active:scale-[0.99]\">…</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"mb-3 flex items-center justify-between\">…</div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"mb-3 flex items-center justify-between\">…</div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <button class=\"flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-white text-black font-semibold transition hover:bg-white/90 active:scale-[0.99]\">…</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  2 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"mb-3 flex items-center justify-between\">…</div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "form_submit",
+            "selector": "form[0]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 3000ms exceeded.\nCall log:\n  - waiting for locator(\"form\").first.locator(\"button[type='submit'], input[type='submit'], button\").first\n    - locator resolved to <button type=\"submit\" class=\"w-full rounded-2xl bg-blue-500 py-3 text-sm font-semibold text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-60\">Lanjutkan</button>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"mb-3 flex items-center justify-between\">…</div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <button class=\"flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-white text-black font-semibold transition hover:bg-white/90 active:scale-[0.99]\">…</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"mb-3 flex items-center justify-between\">…</div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"mb-3 flex items-center justify-between\">…</div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <button class=\"flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-white text-black font-semibold transition hover:bg-white/90 active:scale-[0.99]\">…</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  3 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"mb-3 flex items-center justify-between\">…</div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[0]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").first\n    - locator resolved to <a href=\"/auth/forgot-password\" class=\"text-zinc-300 underline underline-offset-4 hover:text-white\">Lupa Password?</a>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  2 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[1]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(1)\n    - locator resolved to <a href=\"/auth/register\" class=\"font-medium text-white underline underline-offset-4\">Register</a>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <button class=\"mt-3 w-full rounded-xl border border-white/10 px-3 py-2 text-xs text-white/70 transition hover:bg-white/10\">How to install</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <button class=\"mt-3 w-full rounded-xl border border-white/10 px-3 py-2 text-xs text-white/70 transition hover:bg-white/10\">How to install</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  2 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[2]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/auth/login",
+            "url_after": "https://vynra-tune.my.id/",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[3]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(3)\n    - locator resolved to <a href=\"/history\" class=\"transition-colors hover:text-white\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    3 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[4]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(4)\n    - locator resolved to <a href=\"/artist/UCa1eYN7cwBQrOFQLt_K8c-Q\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    3 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[5]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(5)\n    - locator resolved to <a href=\"/artist/UCPLQQRzfvggMf4tQ9KougTQ\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is not stable\n  2 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "infinite_scroll",
+            "selector": "window",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          }
+        ]
+      },
+      {
+        "page_url": "https://vynra-tune.my.id/auth/register",
+        "buttons_total": 2,
+        "buttons_clicked": 2,
+        "buttons_failed": 0,
+        "forms_tested": 1,
+        "validation_issues": 0,
+        "broken_forms": 1,
+        "broken_links": 4,
+        "dead_routes": 0,
+        "redirect_issues": 0,
+        "modal_issues": 1,
+        "dropdown_issues": 0,
+        "interaction_timeouts": 0,
+        "events": [
+          {
+            "action": "click_button",
+            "selector": "button[0]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/auth/register",
+            "url_after": "https://vynra-tune.my.id/auth/register",
+            "dom_changed": true,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "click_button",
+            "selector": "button[1]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/auth/register",
+            "url_after": "https://vynra-tune.my.id/auth/register",
+            "dom_changed": true,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "modal_open_close",
+            "selector": "modal",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-bs-toggle='modal'], [aria-haspopup='dialog'], button\").first\n    - locator resolved to <button type=\"submit\" class=\"w-full rounded-2xl bg-blue-500 py-3 text-sm font-semibold text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-60\">Lanjutkan</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <a href=\"/library\" class=\"flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors text-white/50 hover:text-white/80\">…</a> from <div class=\"fixed bottom-0 left-0 right-0 z-40 bg-black/40 backdrop-blur-xl border-t border-white/5 pb-safe\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <a href=\"/library\" class=\"flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors text-white/50 hover:text-white/80\">…</a> from <div class=\"fixed bottom-0 left-0 right-0 z-40 bg-black/40 backdrop-blur-xl border-t border-white/5 pb-safe\">…</div> subtree intercepts pointer events\n  2 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "form_submit",
+            "selector": "form[0]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 3000ms exceeded.\nCall log:\n  - waiting for locator(\"form\").first.locator(\"button[type='submit'], input[type='submit'], button\").first\n    - locator resolved to <button type=\"submit\" class=\"w-full rounded-2xl bg-blue-500 py-3 text-sm font-semibold text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-60\">Lanjutkan</button>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <a href=\"/library\" class=\"flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors text-white/50 hover:text-white/80\">…</a> from <div class=\"fixed bottom-0 left-0 right-0 z-40 bg-black/40 backdrop-blur-xl border-t border-white/5 pb-safe\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <a href=\"/library\" class=\"flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors text-white/50 hover:text-white/80\">…</a> from <div class=\"fixed bottom-0 left-0 right-0 z-40 bg-black/40 backdrop-blur-xl border-t border-white/5 pb-safe\">…</div> subtree intercepts pointer events\n  3 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <p class=\"mb-4 text-sm text-white/70\">Install not ready? Open browser menu and choose I…</p> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[0]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").first\n    - locator resolved to <a href=\"/auth/login\" class=\"font-medium text-white underline underline-offset-4\">Login</a>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <button class=\"flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-white text-black font-semibold transition hover:bg-white/90 active:scale-[0.99]\">…</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <a href=\"/library\" class=\"flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors text-white/50 hover:text-white/80\">…</a> from <div class=\"fixed bottom-0 left-0 right-0 z-40 bg-black/40 backdrop-blur-xl border-t border-white/5 pb-safe\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <button class=\"flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-white text-black font-semibold transition hover:bg-white/90 active:scale-[0.99]\">…</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <button class=\"flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-white text-black font-semibold transition hover:bg-white/90 active:scale-[0.99]\">…</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <a href=\"/library\" class=\"flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors text-white/50 hover:text-white/80\">…</a> from <div class=\"fixed bottom-0 left-0 right-0 z-40 bg-black/40 backdrop-blur-xl border-t border-white/5 pb-safe\">…</div> subtree intercepts pointer events\n  2 × retrying click action\n      - waiting 500ms\n      - waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <button class=\"flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-white text-black font-semibold transition hover:bg-white/90 active:scale-[0.99]\">…</button> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[1]",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "https://vynra-tune.my.id/auth/register",
+            "url_after": "https://vynra-tune.my.id/",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[2]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(2)\n    - locator resolved to <a href=\"/ai-music\" class=\"flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-3 text-sm text-white transition hover:bg-white/10\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    3 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[3]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(3)\n    - locator resolved to <a href=\"/history\" class=\"transition-colors hover:text-white\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    4 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "navigate",
+            "selector": "a[4]",
+            "status": "failed",
+            "message": "Locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\"nav a[href], .navbar a[href], .menu a[href], .pagination a[href], a[href]\").nth(4)\n    - locator resolved to <a href=\"/artist/UCa1eYN7cwBQrOFQLt_K8c-Q\">…</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    3 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"absolute inset-0 bg-black/35 backdrop-blur-[2px]\"></div> from <div class=\"fixed inset-0 z-40\">…</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 500ms\n",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          },
+          {
+            "action": "infinite_scroll",
+            "selector": "window",
+            "status": "ok",
+            "message": "",
+            "before_screenshot": "",
+            "after_screenshot": "",
+            "error_screenshot": "",
+            "url_before": "",
+            "url_after": "",
+            "dom_changed": false,
+            "console_errors_new": 0,
+            "failed_requests_new": 0
+          }
+        ]
+      }
+    ]
+  },
+  "ai_agent_session": {
+    "status": "skipped",
+    "reason": "disabled_by_mode"
+  },
+  "responsive_testing": {
+    "devices": {
+      "desktop": [
+        {
+          "device": "desktop-1920",
+          "url": "https://vynra-tune.my.id/profile",
+          "screenshot": "screenshots/desktop/https_vynra_tune_my_id_profile_desktop_1920.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": []
+          },
+          "layout": {
+            "navbar_ok": false,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [
+              {
+                "type": "broken_navbar",
+                "detail": "missing_nav_or_header"
+              }
+            ],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 4,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_profile_desktop_1920.png"
+        },
+        {
+          "device": "desktop-1920",
+          "url": "https://vynra-tune.my.id/",
+          "screenshot": "screenshots/desktop/https_vynra_tune_my_id_desktop_1920.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "NAV",
+                "b": "A"
+              }
+            ],
+            "hidden": [
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": ""
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "R.I.O. Megamix (Continuous DJ Mix)\n\nR.I.O."
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "New Year Music 2023 (Best EDM Party Mix)\n\nRTTWLR"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Espresso\n\nSabrina Carpenter"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Shape of You\n\nEd Sheeran"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Blinding Lights\n\nThe Weeknd"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Beautiful Things\n\nBenson Boone"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Kesariya (From \"Brahmastra\")\n\nArijit Singh"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Rush\n\nAyra Starr"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Love Mashup (feat. Atif Aslam & Jyotica Tangri)\n\nL"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Pano\n\nZack Tabudlo"
+              }
+            ],
+            "offscreen": [
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "NAV"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              }
+            ]
+          },
+          "layout": {
+            "navbar_ok": true,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]"
+            ],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 52,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_desktop_1920.png"
+        },
+        {
+          "device": "desktop-1920",
+          "url": "https://vynra-tune.my.id/ai-music",
+          "screenshot": "screenshots/desktop/https_vynra_tune_my_id_ai_music_desktop_1920.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "HEADER",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "HEADER",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "HEADER",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": []
+          },
+          "layout": {
+            "navbar_ok": true,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 9,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_ai_music_desktop_1920.png"
+        },
+        {
+          "device": "desktop-1920",
+          "url": "https://vynra-tune.my.id/auth/login",
+          "screenshot": "screenshots/desktop/https_vynra_tune_my_id_auth_login_desktop_1920.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": []
+          },
+          "layout": {
+            "navbar_ok": false,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [
+              {
+                "type": "broken_navbar",
+                "detail": "missing_nav_or_header"
+              }
+            ],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 4,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_auth_login_desktop_1920.png"
+        },
+        {
+          "device": "desktop-1920",
+          "url": "https://vynra-tune.my.id/auth/register",
+          "screenshot": "screenshots/desktop/https_vynra_tune_my_id_auth_register_desktop_1920.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": []
+          },
+          "layout": {
+            "navbar_ok": false,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [
+              {
+                "type": "broken_navbar",
+                "detail": "missing_nav_or_header"
+              }
+            ],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 4,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_auth_register_desktop_1920.png"
+        }
+      ],
+      "tablet": [],
+      "mobile": [
+        {
+          "device": "iPhone SE",
+          "url": "https://vynra-tune.my.id/profile",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_profile_iphone_se.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": []
+          },
+          "layout": {
+            "navbar_ok": false,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [
+              {
+                "type": "broken_navbar",
+                "detail": "missing_nav_or_header"
+              }
+            ],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 5,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_profile_iphone_se.png"
+        },
+        {
+          "device": "iPhone SE",
+          "url": "https://vynra-tune.my.id/",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_iphone_se.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 334.03125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 397.375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 429.375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 541.3125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 573.3125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 415.078125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 447.078125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 353.890625
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 429.078125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 461.078125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 695.796875
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 727.796875
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 339.921875
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 885.96875
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 917.96875
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 534.9375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 566.9375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 640.125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 672.125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 444.53125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 476.53125
+              }
+            ],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "NAV",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "NAV",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "NAV",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "NAV",
+                "b": "BUTTON"
+              }
+            ],
+            "hidden": [
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": ""
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Bollywood Dj Non Stop Remix(Remix By Dj Jitesh,Psy"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Party Mashup - DJ Praveen - Nonie\n\nShruti Rane"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "R.I.O. Megamix (Continuous DJ Mix)\n\nR.I.O."
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "New Year Music 2023 (Best EDM Party Mix)\n\nRTTWLR"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Espresso\n\nSabrina Carpenter"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Shape of You\n\nEd Sheeran"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Blinding Lights\n\nThe Weeknd"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Beautiful Things\n\nBenson Boone"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Kesariya (From \"Brahmastra\")\n\nArijit Singh"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Rush\n\nAyra Starr"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Love Mashup (feat. Atif Aslam & Jyotica Tangri)\n\nL"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Pano\n\nZack Tabudlo"
+              }
+            ],
+            "offscreen": [
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "NAV"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              }
+            ]
+          },
+          "layout": {
+            "navbar_ok": true,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]"
+            ],
+            "text_overflow": [
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "Bollywood Dj Non Stop Remix(Remix By Dj Jitesh,Psynth)"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "Party Mashup - DJ Praveen - Nonie"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "R.I.O. Megamix (Continuous DJ Mix)"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "New Year Music 2023 (Best EDM Party Mix)"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "Kesariya (From \"Brahmastra\")"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "Love Mashup (feat. Atif Aslam & Jyotica Tangri)"
+              }
+            ],
+            "modal_overflow": [],
+            "broken_navbar": [],
+            "responsive_layout_broken": [
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]"
+            ]
+          },
+          "total_issues": 70,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_iphone_se.png"
+        },
+        {
+          "device": "iPhone SE",
+          "url": "https://vynra-tune.my.id/ai-music",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_ai_music_iphone_se.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "HEADER",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "HEADER",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "HEADER",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": []
+          },
+          "layout": {
+            "navbar_ok": true,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 11,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_ai_music_iphone_se.png"
+        },
+        {
+          "device": "iPhone SE",
+          "url": "https://vynra-tune.my.id/auth/login",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_auth_login_iphone_se.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": [
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              }
+            ]
+          },
+          "layout": {
+            "navbar_ok": false,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [
+              {
+                "type": "broken_navbar",
+                "detail": "missing_nav_or_header"
+              }
+            ],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 9,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_auth_login_iphone_se.png"
+        },
+        {
+          "device": "iPhone SE",
+          "url": "https://vynra-tune.my.id/auth/register",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_auth_register_iphone_se.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": [
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              }
+            ]
+          },
+          "layout": {
+            "navbar_ok": false,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [
+              {
+                "type": "broken_navbar",
+                "detail": "missing_nav_or_header"
+              }
+            ],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 15,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_auth_register_iphone_se.png"
+        },
+        {
+          "device": "iPhone 14",
+          "url": "https://vynra-tune.my.id/profile",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_profile_iphone_14.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": []
+          },
+          "layout": {
+            "navbar_ok": false,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [
+              {
+                "type": "broken_navbar",
+                "detail": "missing_nav_or_header"
+              }
+            ],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 4,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_profile_iphone_14.png"
+        },
+        {
+          "device": "iPhone 14",
+          "url": "https://vynra-tune.my.id/",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_iphone_14.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 397.375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 429.375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 541.3125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 573.3125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 415.078125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 447.078125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 429.078125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 461.078125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 695.796875
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 727.796875
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 885.96875
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 917.96875
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 534.9375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 566.9375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 640.125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 672.125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 444.53125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 476.53125
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 603.09375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 pl-8 inline-flex items-center gap-1",
+                "width": 635.09375
+              },
+              {
+                "type": "element_overflow",
+                "tag": "SPAN",
+                "className": "shrink-0 inline-flex items-center gap-1",
+                "width": 415.078125
+              }
+            ],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "NAV",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "NAV",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "NAV",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "NAV",
+                "b": "BUTTON"
+              }
+            ],
+            "hidden": [
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": ""
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Bollywood Dj Non Stop Remix(Remix By Dj Jitesh,Psy"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Party Mashup - DJ Praveen - Nonie\n\nShruti Rane"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "R.I.O. Megamix (Continuous DJ Mix)\n\nR.I.O."
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "New Year Music 2023 (Best EDM Party Mix)\n\nRTTWLR"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Espresso\n\nSabrina Carpenter"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Shape of You\n\nEd Sheeran"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Blinding Lights\n\nThe Weeknd"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Beautiful Things\n\nBenson Boone"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Kesariya (From \"Brahmastra\")\n\nArijit Singh"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Rush\n\nAyra Starr"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Love Mashup (feat. Atif Aslam & Jyotica Tangri)\n\nL"
+              },
+              {
+                "type": "hidden_element",
+                "tag": "BUTTON",
+                "text": "Pano\n\nZack Tabudlo"
+              }
+            ],
+            "offscreen": [
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "NAV"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              },
+              {
+                "type": "offscreen_element",
+                "tag": "BUTTON"
+              }
+            ]
+          },
+          "layout": {
+            "navbar_ok": true,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]"
+            ],
+            "text_overflow": [
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "Bollywood Dj Non Stop Remix(Remix By Dj Jitesh,Psynth)"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "Party Mashup - DJ Praveen - Nonie"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "R.I.O. Megamix (Continuous DJ Mix)"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "New Year Music 2023 (Best EDM Party Mix)"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "Kesariya (From \"Brahmastra\")"
+              },
+              {
+                "type": "text_overflow",
+                "tag": "P",
+                "text": "Love Mashup (feat. Atif Aslam & Jyotica Tangri)"
+              }
+            ],
+            "modal_overflow": [],
+            "broken_navbar": [],
+            "responsive_layout_broken": [
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]",
+              "[Circular Reference]"
+            ]
+          },
+          "total_issues": 72,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_iphone_14.png"
+        },
+        {
+          "device": "iPhone 14",
+          "url": "https://vynra-tune.my.id/ai-music",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_ai_music_iphone_14.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "HEADER",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "HEADER",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "HEADER",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": []
+          },
+          "layout": {
+            "navbar_ok": true,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 11,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_ai_music_iphone_14.png"
+        },
+        {
+          "device": "iPhone 14",
+          "url": "https://vynra-tune.my.id/auth/login",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_auth_login_iphone_14.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": []
+          },
+          "layout": {
+            "navbar_ok": false,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [
+              {
+                "type": "broken_navbar",
+                "detail": "missing_nav_or_header"
+              }
+            ],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 5,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_auth_login_iphone_14.png"
+        },
+        {
+          "device": "iPhone 14",
+          "url": "https://vynra-tune.my.id/auth/register",
+          "screenshot": "screenshots/mobile/https_vynra_tune_my_id_auth_register_iphone_14.png",
+          "status": "issue_found",
+          "visual_issues": {
+            "overflow": [],
+            "overlap": [
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "BUTTON"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "INPUT",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "BUTTON",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              },
+              {
+                "type": "overlap",
+                "a": "A",
+                "b": "A"
+              }
+            ],
+            "hidden": [],
+            "offscreen": [
+              {
+                "type": "offscreen_element",
+                "tag": "A"
+              }
+            ]
+          },
+          "layout": {
+            "navbar_ok": false,
+            "modal_out_of_view": false,
+            "image_distortion_count": 0
+          },
+          "issue_map": {
+            "horizontal_overflow": [],
+            "element_outside_viewport": "[Circular Reference]",
+            "overlap": "[Circular Reference]",
+            "hidden_button": [],
+            "text_overflow": [],
+            "modal_overflow": [],
+            "broken_navbar": [
+              {
+                "type": "broken_navbar",
+                "detail": "missing_nav_or_header"
+              }
+            ],
+            "responsive_layout_broken": []
+          },
+          "total_issues": 14,
+          "bug_screenshot": "screenshots/responsive/bug_https_vynra_tune_my_id_auth_register_iphone_14.png"
+        }
+      ]
+    },
+    "session_recording": {
+      "steps": 15,
+      "video_count": 0,
+      "timeline": [
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "desktop-1920",
+            "url": "https://vynra-tune.my.id/profile",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "desktop-1920",
+            "url": "https://vynra-tune.my.id/",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "desktop-1920",
+            "url": "https://vynra-tune.my.id/ai-music",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "desktop-1920",
+            "url": "https://vynra-tune.my.id/auth/login",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "desktop-1920",
+            "url": "https://vynra-tune.my.id/auth/register",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone SE",
+            "url": "https://vynra-tune.my.id/profile",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone SE",
+            "url": "https://vynra-tune.my.id/",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone SE",
+            "url": "https://vynra-tune.my.id/ai-music",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone SE",
+            "url": "https://vynra-tune.my.id/auth/login",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone SE",
+            "url": "https://vynra-tune.my.id/auth/register",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone 14",
+            "url": "https://vynra-tune.my.id/profile",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone 14",
+            "url": "https://vynra-tune.my.id/",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone 14",
+            "url": "https://vynra-tune.my.id/ai-music",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone 14",
+            "url": "https://vynra-tune.my.id/auth/login",
+            "status": "issue_found"
+          }
+        },
+        {
+          "step": "responsive_page_test",
+          "detail": {
+            "device": "iPhone 14",
+            "url": "https://vynra-tune.my.id/auth/register",
+            "status": "issue_found"
+          }
+        }
+      ],
+      "videos": []
+    },
+    "video_paths": "[Circular Reference]"
+  },
+  "pages": [
+    {
+      "url": "https://vynra-tune.my.id/profile",
+      "status": "ok",
+      "load_time_ms": 509.34,
+      "dom_ready_ms": 498.6,
+      "fcp_ms": 532,
+      "console_errors": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 401 ()"
+        }
+      ],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/auth/register",
+          "text": "Register"
+        },
+        {
+          "href": "https://vynra-tune.my.id/auth/login",
+          "text": "Login"
+        },
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id_profile.png"
+    },
+    {
+      "url": "https://vynra-tune.my.id/",
+      "status": "ok",
+      "load_time_ms": 114.03,
+      "dom_ready_ms": 103.1,
+      "fcp_ms": null,
+      "console_errors": [],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/profile",
+          "text": "Profile"
+        },
+        {
+          "href": "https://vynra-tune.my.id/change-password",
+          "text": "Ganti Password"
+        },
+        {
+          "href": "https://vynra-tune.my.id/ai-music",
+          "text": "Ai Music"
+        },
+        {
+          "href": "https://vynra-tune.my.id/history",
+          "text": ""
+        },
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id.png"
+    },
+    {
+      "url": "https://vynra-tune.my.id/ai-music",
+      "status": "ok",
+      "load_time_ms": 134.58,
+      "dom_ready_ms": 124.6,
+      "fcp_ms": null,
+      "console_errors": [],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [
+        {
+          "index": 0,
+          "action": "https://vynra-tune.my.id/ai-music",
+          "method": "GET",
+          "input_count": 1,
+          "has_submit": true
+        }
+      ],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [
+        {
+          "type": "missing_label",
+          "element": "INPUT"
+        }
+      ],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id_ai_music.png"
+    },
+    {
+      "url": "https://vynra-tune.my.id/auth/login",
+      "status": "ok",
+      "load_time_ms": 92.79,
+      "dom_ready_ms": 83.7,
+      "fcp_ms": null,
+      "console_errors": [],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [
+        {
+          "index": 0,
+          "action": "https://vynra-tune.my.id/auth/login",
+          "method": "GET",
+          "input_count": 3,
+          "has_submit": true
+        }
+      ],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/auth/forgot-password",
+          "text": "Lupa Password?"
+        },
+        {
+          "href": "https://vynra-tune.my.id/auth/register",
+          "text": "Register"
+        },
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id_auth_login.png"
+    },
+    {
+      "url": "https://vynra-tune.my.id/auth/register",
+      "status": "ok",
+      "load_time_ms": 103.06,
+      "dom_ready_ms": 92.7,
+      "fcp_ms": null,
+      "console_errors": [],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [
+        {
+          "index": 0,
+          "action": "https://vynra-tune.my.id/auth/register",
+          "method": "GET",
+          "input_count": 4,
+          "has_submit": true
+        }
+      ],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/auth/login",
+          "text": "Login"
+        },
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id_auth_register.png"
+    },
+    {
+      "url": "https://vynra-tune.my.id/change-password",
+      "status": "ok",
+      "load_time_ms": 92.87,
+      "dom_ready_ms": 82.5,
+      "fcp_ms": null,
+      "console_errors": [],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [
+        {
+          "index": 0,
+          "action": "https://vynra-tune.my.id/change-password",
+          "method": "GET",
+          "input_count": 3,
+          "has_submit": true
+        }
+      ],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id_change_password.png"
+    },
+    {
+      "url": "https://vynra-tune.my.id/developer",
+      "status": "ok",
+      "load_time_ms": 148.78,
+      "dom_ready_ms": 137.9,
+      "fcp_ms": null,
+      "console_errors": [],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/developer#",
+          "text": "Website"
+        },
+        {
+          "href": "https://kayydeveloper.netlify.app/",
+          "text": "Personal Website"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer#",
+          "text": "X"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer#",
+          "text": "Instagram"
+        },
+        {
+          "href": "https://sociabuzz.com/kayyofficial",
+          "text": "Like what I do?Buy me a coffee"
+        },
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id_developer.png"
+    },
+    {
+      "url": "https://vynra-tune.my.id/history",
+      "status": "ok",
+      "load_time_ms": 108.79,
+      "dom_ready_ms": 99.6,
+      "fcp_ms": null,
+      "console_errors": [],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id_history.png"
+    },
+    {
+      "url": "https://vynra-tune.my.id/library",
+      "status": "ok",
+      "load_time_ms": 589.82,
+      "dom_ready_ms": 574,
+      "fcp_ms": 608,
+      "console_errors": [],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/auth/register",
+          "text": "Register"
+        },
+        {
+          "href": "https://vynra-tune.my.id/auth/login",
+          "text": "Login"
+        },
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id_library.png"
+    },
+    {
+      "url": "https://vynra-tune.my.id/search",
+      "status": "ok",
+      "load_time_ms": 106.99,
+      "dom_ready_ms": 94,
+      "fcp_ms": null,
+      "console_errors": [],
+      "failed_requests": [],
+      "broken_images": [],
+      "forms": [
+        {
+          "index": 0,
+          "action": "https://vynra-tune.my.id/search",
+          "method": "GET",
+          "input_count": 1,
+          "has_submit": false
+        }
+      ],
+      "links": [
+        {
+          "href": "https://vynra-tune.my.id/",
+          "text": "Beranda"
+        },
+        {
+          "href": "https://vynra-tune.my.id/search",
+          "text": "Mencari"
+        },
+        {
+          "href": "https://vynra-tune.my.id/library",
+          "text": "Pustaka"
+        },
+        {
+          "href": "https://vynra-tune.my.id/developer",
+          "text": "Developer"
+        }
+      ],
+      "accessibility_issues": [
+        {
+          "type": "missing_label",
+          "element": "INPUT"
+        },
+        {
+          "type": "missing_h1",
+          "element": "document"
+        }
+      ],
+      "screenshot_path": "screenshots/https_vynra_tune_my_id_search.png"
+    }
+  ],
+  "authenticated_testing": {
+    "status": "skipped",
+    "reason": "disabled_by_mode"
+  },
+  "ai_analysis": {
+    "score": 91,
+    "analysis": "Groq gagal dipanggil, fallback lokal aktif: Groq request failed after retry: Error code: 401 - {'error': {'message': 'Invalid API Key', 'type': 'invalid_request_error', 'code': 'invalid_api_key'}}",
+    "recommendations": [
+      "Cek GROQ_API_KEY, model, dan koneksi jaringan."
+    ],
+    "markdown_report": "# 🏆 SKOR KESELURUHAN: [91/100]\n\n⚠️ Perlu validasi manual lebih lanjut. (AI tidak tersedia, fallback lokal aktif)\n\n# ⚡ ANALISIS PERFORMA\n- Rata-rata load time: 200.1 ms.\n- Potensi bottleneck: asset besar, request lambat, atau render blocking.\n\n# 🐛 BUG & ERROR\n- Console errors: 1.\n- Failed requests: 0.\n\n# ♿ AKSESIBILITAS\n- Total isu aksesibilitas dasar: 3.\n\n# 🎯 5 PRIORITAS UTAMA\n1. Perbaiki failed request dan error console yang memblokir fitur utama.\n2. Optimasi resource statis (gambar, CSS, JS) serta aktifkan caching.\n3. Perbaiki aksesibilitas penting: alt text, label form, struktur heading.\n4. Validasi form input di frontend + backend untuk menurunkan error submission.\n5. Lakukan audit manual keamanan dasar (header security, auth flow, input sanitization).\n\n# 📌 KESIMPULAN AKHIR\nWebsite dapat diaudit otomatis dengan baik, namun masih memerlukan perbaikan prioritas sebelum dinilai siap production penuh.",
+    "raw_report": "[Circular Reference]"
+  }
+}
