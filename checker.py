@@ -34,7 +34,10 @@ class WebsiteChecker:
 
         try:
             start = time.perf_counter()
-            response = await page.goto(url, wait_until="networkidle", timeout=45000)
+            try:
+                response = await page.goto(url, wait_until="domcontentloaded    ", timeout=30000)
+            except Exception as exc:
+                await page.goto(url, wait_until="domcontentloaded", timeout=30000)
             result.load_time_ms = round((time.perf_counter() - start) * 1000, 2)
 
             if response and response.status >= 400:

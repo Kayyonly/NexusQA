@@ -18,18 +18,18 @@ class SummaryBuilder:
         self.max_payload_chars = max_payload_chars
 
     def build_summary(self, payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
-        pages = payload.get("pages", [])[: self.MAX_CRAWLED_PAGES]
+        pages = payload.get("pages", [])[:self.MAX_CRAWLED_PAGES]
         summary = payload.get("summary", {})
         responsive = payload.get("responsive_testing", {}).get("devices", {})
 
         console_errors = [e.get("text", "") for p in pages for e in p.get("console_errors", [])]
         failed_requests = [self._request_key(r) for p in pages for r in p.get("failed_requests", [])]
-        a11y = [self._a11y_key(i) for p in pages for i in p.get("accessibility_issues", [])]
+        a11y = [self._a11y_key(i) for p in pages for i in p.get("accessibility_issues", [])]    
 
         grouped_console = self._group_issues(console_errors)[: self.MAX_CONSOLE_ERRORS]
         grouped_failed = self._group_issues(failed_requests)[: self.MAX_FAILED_REQUESTS]
         grouped_a11y = self._group_issues(a11y)[: self.MAX_ACCESSIBILITY_ISSUES]
-        responsive_issues = self._summarize_responsive(responsive)[: self.MAX_RESPONSIVE_ISSUES]
+        responsive_issues = self._summarize_responsive(responsive or [])[:self.MAX_RESPONSIVE_ISSUES]
 
         interactions = self._summarize_interactions(payload)[: self.MAX_INTERACTION_LOGS]
         important_pages = self._important_pages(payload)[: self.MAX_CRAWLED_PAGES]
@@ -42,7 +42,7 @@ class SummaryBuilder:
             "url": pages[0].get("url", "") if pages else "",
             "title": "AI Website Review Summary",
             "performance": {
-                "avg_load_time_ms": summary.get("avg_load_time_ms", 0),
+               "avg_load_time_ms": summary.get("avg_load_time_ms", 0),
                 "avg_fcp_ms": avg_fcp,
                 "top_performance_issue": top_perf_issue,
                 "api_latency_summary": grouped_failed[0]["issue"] if grouped_failed else "none",
@@ -167,6 +167,7 @@ class SummaryBuilder:
         for extra in [auth.get("dashboard_screenshot"), auth.get("protected_route_screenshot")]:
             if extra:
                 shots.append(extra)
+        
         return [s for s in dict.fromkeys(shots) if s]
 
     def _top_perf_issue(self, summary: dict[str, Any], failed: list[dict[str, Any]], console: list[dict[str, Any]]) -> str:

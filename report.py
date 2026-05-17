@@ -73,6 +73,7 @@ def write_reports(base_name: str, payload: dict[str, Any], ai_result: dict[str, 
     ai_debug = payload.get("ai_analysis", {}).get("summary_debug", {})
     devices = responsive.get("devices", {})
     auth = payload.get("authenticated_testing", {})
+    video_recording = payload.get("video_recording", {})
     lines = [
         "AI WEBSITE REVIEW BOT REPORT",
         "=" * 40,
@@ -118,6 +119,10 @@ def write_reports(base_name: str, payload: dict[str, Any], ai_result: dict[str, 
         f"Auth token detected: {auth.get('auth_token_exists', False)}",
         f"Protected routes found: {auth.get('protected_routes', {}).get('protected_route_count', 0)}",
         "",
+        "🎥 VIDEO RECORDING",
+        "-" * 40,
+        f"Total videos: {video_recording.get('total_videos', 0)}",
+        "",
         "🧪 INTERACTION TESTING",
         "-" * 40,
         f"Buttons total/clicked/failed: {interaction.get('buttons_total',0)}/{interaction.get('buttons_clicked',0)}/{interaction.get('buttons_failed',0)}",
@@ -141,6 +146,9 @@ def write_reports(base_name: str, payload: dict[str, Any], ai_result: dict[str, 
         lines.append(f"- {auth.get('dashboard_screenshot')}")
     if auth.get("protected_route_screenshot"):
         lines.append(f"- {auth.get('protected_route_screenshot')}")
+
+    for video in video_recording.get("files", []):
+        lines.append(f"- {video}")
 
     lines.append("Auth logs:")
     for entry in auth.get("auth_logs", [])[:20]:

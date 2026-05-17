@@ -2,9 +2,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from recording.video_recorder import VideoRecorder
+
 
 class AuthTester:
-    async def test_dashboard(self, context, urls: list[str]) -> dict:
+    async def test_dashboard(self, context, urls: list[str], video_output: str = "") -> dict:
         Path("screenshots/auth").mkdir(parents=True, exist_ok=True)
         api_calls: list[dict] = []
         route_results: list[dict] = []
@@ -29,10 +31,15 @@ class AuthTester:
             await page.screenshot(path="screenshots/auth/protected-route.png", full_page=True)
 
         await page.screenshot(path="screenshots/auth/dashboard.png", full_page=True)
-        await page.close()
+        auth_video = ""
+        if video_output:
+            auth_video = await VideoRecorder.finalize_named_video(page, video_output)
+        else:
+            await page.close()
         return {
             "protected_route_results": route_results,
             "authenticated_api": api_calls[:60],
             "dashboard_screenshot": "screenshots/auth/dashboard.png",
             "protected_route_screenshot": "screenshots/auth/protected-route.png" if protected_target else "",
+            "auth_video": auth_video,
         }

@@ -62,7 +62,7 @@ class SmartWebsiteCrawler:
 
             page = await context.new_page()
             try:
-                resp = await page.goto(node.url, wait_until="networkidle", timeout=35000)
+                resp = await page.goto(node.url, wait_until="domcontentloaded", timeout=30000)
                 if not resp or resp.status >= 400:
                     result.issues["broken_routes"].append(node.url)
                     continue
