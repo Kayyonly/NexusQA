@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+screenshots/
+videos/
+logs/
+reports/
+*.webm
+*.png
+*.jpg
