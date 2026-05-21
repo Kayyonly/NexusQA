@@ -122,6 +122,7 @@ async def _run_single_session(console: Console, target_url: str, mode_config: di
     raw_payload = ai_result.get("raw_report", {})
     _render_tools_summary(console, raw_payload)
     _render_technical_explanation(console, raw_payload)
+    _render_local_engine_summary(console, raw_payload)
     ai_markdown = ai_result.get("markdown_report") or ai_result.get("analysis") or "Analisis tidak tersedia."
     console.print(Panel(Markdown(ai_markdown), title="HASIL ANALISIS WEB", border_style="green", expand=True))
     console.print("[green]Analisis selesai[/green]")
@@ -201,6 +202,16 @@ def _render_technical_explanation(console: Console, payload: dict) -> None:
     console.print(tree)
 
 
+
+
+def _render_local_engine_summary(console: Console, payload: dict) -> None:
+    local = payload.get("local_analysis", {}).get("terminal_summary", {})
+    if not local:
+        return
+    console.print(Rule("🧠 Local Rule Engine", style="magenta"))
+    console.print(f"✅ {local.get('classified', 0)} issues classified")
+    console.print(f"✅ {local.get('merged', 0)} duplicate issues merged")
+    console.print(f"✅ {local.get('critical', 0)} critical issues detected")
 def _build_auth_config(args, mode_config: dict) -> dict:
     mode_auth = mode_config.get("auth", False)
     force_auth = bool(args and args.auth_enabled and mode_config.get("auth_override_allowed", False))

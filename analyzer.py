@@ -6,6 +6,8 @@ from typing import Any
 from groq import Groq
 
 from ai.summary_builder import SummaryBuilder
+from engine.fallback_report import build_fallback_report
+from engine.rule_engine import LocalRuleEngine
 
 
 ADVANCED_ANALYSIS_PROMPT_TEMPLATE = """Anda adalah Senior QA Engineer dan Senior Web Developer.
@@ -189,6 +191,7 @@ class AIAnalyzer:
         self.api_key = os.getenv("GROQ_API_KEY", "")
         self.model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
         self.summary_builder = SummaryBuilder(max_payload_chars=20000)
+        self.rule_engine = LocalRuleEngine()
 
     def _build_prompt(self, summary_data: dict[str, Any]) -> str:
         formatted_json = json.dumps(summary_data, indent=2, ensure_ascii=False)
@@ -239,19 +242,23 @@ class AIAnalyzer:
         raise RuntimeError(f"Groq request failed after retry: {last_error}")
 
     def analyze(self, report_payload: dict[str, Any]) -> dict[str, Any]:
+        local_analysis = self.rule_engine.analyze(report_payload)
+        report_payload["local_analysis"] = local_analysis
         ai_summary, summary_debug = self.summary_builder.build_summary(report_payload)
         perf = report_payload["summary"]["avg_load_time_ms"]
         err = report_payload["summary"]["total_console_errors"] + report_payload["summary"]["total_failed_requests"]
         a11y = report_payload["summary"]["total_accessibility_issues"]
-        local_score = _score(perf, err, a11y)
+        local_score = local_analysis.get("scores", {}).get("overall_score", _score(perf, err, a11y))
 
         if not self.api_key:
-            fallback = self._fallback_markdown(report_payload, local_score)
+            fallback = build_fallback_report(local_analysis.get("local_insight", "Insight lokal tidak tersedia."), local_analysis.get("scores", {}), local_analysis.get("priorities", []))
             return {
                 "score": local_score,
                 "analysis": "GROQ_API_KEY tidak tersedia. Menggunakan analisis lokal berbasis rule.",
                 "ai_summary": ai_summary,
                 "summary_debug": summary_debug,
+                "local_analysis": local_analysis,
+                "local_analysis": local_analysis,
                 "recommendations": [
                     "Perbaiki console error dan failed request terlebih dahulu.",
                     "Optimalkan asset statis (gambar, CSS, JS).",
@@ -271,12 +278,13 @@ class AIAnalyzer:
                 "analysis": "Analisis Groq berhasil dibuat.",
                 "ai_summary": ai_summary,
                 "summary_debug": summary_debug,
+                "local_analysis": local_analysis,
                 "recommendations": [],
                 "markdown_report": markdown_report,
             }
         except Exception as exc:
             print(f"\n[DEBUG] Groq error: {exc}\n")
-            fallback = self._fallback_markdown(report_payload, local_score)
+            fallback = build_fallback_report(local_analysis.get("local_insight", "Insight lokal tidak tersedia."), local_analysis.get("scores", {}), local_analysis.get("priorities", []))
             return {
                 "score": local_score,
                 "analysis": f"Groq gagal dipanggil, fallback lokal aktif: {exc}",

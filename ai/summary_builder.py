@@ -21,6 +21,7 @@ class SummaryBuilder:
         pages = payload.get("pages", [])[:self.MAX_CRAWLED_PAGES]
         summary = payload.get("summary", {})
         responsive = payload.get("responsive_testing", {}).get("devices", {})
+        local_analysis = payload.get("local_analysis", {})
 
         console_errors = [e.get("text", "") for p in pages for e in p.get("console_errors", [])]
         failed_requests = [self._request_key(r) for p in pages for r in p.get("failed_requests", [])]
@@ -61,6 +62,13 @@ class SummaryBuilder:
             "interaction_logs": interactions,
             "screenshots": screenshots,
             "priority_signals": self._priority_signals(grouped_console, grouped_failed, responsive_issues, grouped_a11y),
+            "local_analysis": {
+                "scores": local_analysis.get("scores", {}),
+                "grouped_issues": local_analysis.get("issues_grouped", [])[:12],
+                "local_insight": local_analysis.get("local_insight", ""),
+                "responsive_summary": local_analysis.get("responsive_summary", {}),
+                "priorities": local_analysis.get("priorities", [])[:5],
+            },
         }
 
         trimmed, trim_info = self._enforce_payload_limit(compact)
