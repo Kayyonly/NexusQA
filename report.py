@@ -71,6 +71,7 @@ def write_reports(base_name: str, payload: dict[str, Any], ai_result: dict[str, 
     agent = payload.get("ai_agent_session", {})
     responsive = payload.get("responsive_testing", {})
     ai_debug = payload.get("ai_analysis", {}).get("summary_debug", {})
+    local_engine = payload.get("local_analysis", {}).get("terminal_summary", {})
     devices = responsive.get("devices", {})
     auth = payload.get("authenticated_testing", {})
     video_recording = payload.get("video_recording", {})
@@ -81,6 +82,12 @@ def write_reports(base_name: str, payload: dict[str, Any], ai_result: dict[str, 
         f"Pages Crawled: {summary['pages_crawled']}",
         f"Avg Load Time: {summary['avg_load_time_ms']} ms",
         f"Console Errors: {summary['total_console_errors']}",
+        "",
+        "🧠 Local Rule Engine",
+        "-" * 40,
+        f"Issues classified: {local_engine.get('classified', 0)}",
+        f"Duplicate merged: {local_engine.get('merged', 0)}",
+        f"Critical issues: {local_engine.get('critical', 0)}",
         "",
         "🧠 AI SUMMARY",
         "-" * 40,

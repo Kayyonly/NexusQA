@@ -1,176 +1,44 @@
 import json
 import os
 import time
+from dotenv import load_dotenv
+load_dotenv(override=True)
 from typing import Any
 
 from groq import Groq
 
 from ai.summary_builder import SummaryBuilder
+from engine.fallback_report import build_fallback_report
+from engine.rule_engine import LocalRuleEngine
 
 
-ADVANCED_ANALYSIS_PROMPT_TEMPLATE = """Anda adalah Senior QA Engineer dan Senior Web Developer.
+ADVANCED_ANALYSIS_PROMPT_TEMPLATE = ADVANCED_ANALYSIS_PROMPT_TEMPLATE = """Kamu adalah Senior QA Engineer.
 
-Analisa hasil testing website berikut dan buat laporan QA profesional dalam Bahasa Indonesia yang natural, jelas, dan mudah dipahami.
+Analisa data website berikut.
 
-Fokus analisa:
-
-* Performance
-* Bug & error
-* UI/UX
-* Responsive issue
-* Accessibility
-* API/network issue
-* Security basic issue
-* Frontend rendering/hydration
-* Form validation
-* Asset/media issue
-* SEO basic
-
-Jangan membuat asumsi tanpa bukti.
-Jika data kurang jelas, tulis:
-⚠️ Perlu validasi manual lebih lanjut.
+Fokus:
+- performance
+- UI/UX
+- responsive
+- accessibility
+- API/network
+- frontend issue
+- security indication
 
 Gunakan severity:
+CRITICAL/HIGH/MEDIUM/LOW
 
-* CRITICAL
-* HIGH
-* MEDIUM
-* LOW
+Berikan:
+1. overall summary
+2. top issues
+3. recommendation
+4. production readiness
 
-========================================
-DATA TESTING
-============
+Jika data tidak cukup:
+"Perlu validasi manual lebih lanjut."
 
-{testing_data_json}
-
-========================================
-FORMAT OUTPUT
-=============
-
-# 🏆 SKOR KESELURUHAN: X/100
-
-Berikan ringkasan kondisi website secara profesional.
-
-| Kategori        | Skor  |
-| --------------- | ----- |
-| Stability       | X/100 |
-| Performance     | X/100 |
-| Security        | X/100 |
-| Accessibility   | X/100 |
-| User Experience | X/100 |
-| Maintainability | X/100 |
-
----
-
-# ⚡ ANALISIS PERFORMA
-
-Bahas:
-
-* load time
-* FCP/LCP
-* render performance
-* API latency
-* asset loading
-* bottleneck
-* dampak UX & SEO
-* rekomendasi optimasi
-
----
-
-# 🐛 BUG & ERROR
-
-Untuk setiap issue gunakan format:
-
-## [SEVERITY] Nama Masalah
-
-### Ringkasan
-
-### Detail Teknis
-
-### Dampak
-
-### Kemungkinan Penyebab
-
-### Cara Fix
-
-### Prioritas
-
-Jika tidak ada masalah:
-✅ Tidak ada bug/error signifikan ditemukan.
-
----
-
-# 📋 UI & RESPONSIVE
-
-Evaluasi:
-
-* form & validation
-* responsive layout
-* overflow
-* hydration mismatch
-* usability
-* mobile issue
-* layout shift
-
----
-
-# ♿ AKSESIBILITAS
-
-Evaluasi:
-
-* alt text
-* semantic HTML
-* heading structure
-* ARIA
-* keyboard navigation
-
----
-
-# 🔐 SECURITY DASAR
-
-Cek indikasi:
-
-* exposed secret
-* insecure header
-* XSS/CSRF indication
-* auth issue
-* dependency risk
-
-Jangan membuat klaim berlebihan tanpa bukti.
-
----
-
-# ⚙️ FRONTEND & BACKEND
-
-Analisa:
-
-* React/Next.js hydration
-* rendering issue
-* component/CSS issue
-* failed request
-* abnormal status code
-* slow API
-* timeout
-
----
-
-# 🎯 5 PRIORITAS UTAMA
-
-Urutkan 5 masalah paling penting berdasarkan dampak bisnis & UX.
-
----
-
-# 📌 KESIMPULAN AKHIR
-
-Jelaskan:
-
-* kesiapan website
-* risiko utama
-* area yang perlu improvement
-* apakah layak production
-
-
----"""
+Data:
+{testing_data_json}"""
 
 
 def _score(avg_load_time: float, errors: int, a11y: int) -> int:
@@ -189,6 +57,8 @@ class AIAnalyzer:
         self.api_key = os.getenv("GROQ_API_KEY", "")
         self.model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
         self.summary_builder = SummaryBuilder(max_payload_chars=20000)
+        self.rule_engine = LocalRuleEngine()
+
 
     def _build_prompt(self, summary_data: dict[str, Any]) -> str:
         formatted_json = json.dumps(summary_data, indent=2, ensure_ascii=False)
@@ -228,7 +98,7 @@ class AIAnalyzer:
                         {"role": "user", "content": prompt},
                     ],
                     temperature=0.2,
-                    max_tokens=1800,
+                    max_tokens=1500,
                 )
                 return (response.choices[0].message.content or "").strip()
             except Exception as exc:
@@ -239,19 +109,22 @@ class AIAnalyzer:
         raise RuntimeError(f"Groq request failed after retry: {last_error}")
 
     def analyze(self, report_payload: dict[str, Any]) -> dict[str, Any]:
+        local_analysis = self.rule_engine.analyze(report_payload)
+        report_payload["local_analysis"] = local_analysis
         ai_summary, summary_debug = self.summary_builder.build_summary(report_payload)
         perf = report_payload["summary"]["avg_load_time_ms"]
         err = report_payload["summary"]["total_console_errors"] + report_payload["summary"]["total_failed_requests"]
         a11y = report_payload["summary"]["total_accessibility_issues"]
-        local_score = _score(perf, err, a11y)
+        local_score = local_analysis.get("scores", {}).get("overall_score", _score(perf, err, a11y))
 
         if not self.api_key:
-            fallback = self._fallback_markdown(report_payload, local_score)
+            fallback = build_fallback_report(local_analysis.get("local_insight", "Insight lokal tidak tersedia."), local_analysis.get("scores", {}), local_analysis.get("priorities", []))
             return {
                 "score": local_score,
                 "analysis": "GROQ_API_KEY tidak tersedia. Menggunakan analisis lokal berbasis rule.",
                 "ai_summary": ai_summary,
                 "summary_debug": summary_debug,
+                "local_analysis": local_analysis,
                 "recommendations": [
                     "Perbaiki console error dan failed request terlebih dahulu.",
                     "Optimalkan asset statis (gambar, CSS, JS).",
@@ -271,12 +144,13 @@ class AIAnalyzer:
                 "analysis": "Analisis Groq berhasil dibuat.",
                 "ai_summary": ai_summary,
                 "summary_debug": summary_debug,
+                "local_analysis": local_analysis,
                 "recommendations": [],
                 "markdown_report": markdown_report,
             }
         except Exception as exc:
             print(f"\n[DEBUG] Groq error: {exc}\n")
-            fallback = self._fallback_markdown(report_payload, local_score)
+            fallback = build_fallback_report(local_analysis.get("local_insight", "Insight lokal tidak tersedia."), local_analysis.get("scores", {}), local_analysis.get("priorities", []))
             return {
                 "score": local_score,
                 "analysis": f"Groq gagal dipanggil, fallback lokal aktif: {exc}",

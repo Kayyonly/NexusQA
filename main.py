@@ -1,5 +1,11 @@
 import argparse
 import asyncio
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
+
 from datetime import datetime
 
 from playwright.async_api import async_playwright
