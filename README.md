@@ -10,58 +10,58 @@
 [![License](https://img.shields.io/badge/License-MIT-purple?style=flat-square)](LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-Kayyonly%2FNexusQA-black?style=flat-square&logo=github)](https://github.com/Kayyonly/NexusQA)
 
-> Automated website testing powered by Playwright + Groq AI — crawling, performance, accessibility, responsive, interaction, auth testing, dan AI analysis dalam satu tools.
+Automated website testing powered by Playwright + Groq AI — crawling, performance, accessibility, responsive, interaction, auth testing, dan AI analysis dalam satu tools.
 
 </div>
 
 ---
 
-## ✨ Fitur Utama
+## Features
 
-| Fitur | Keterangan |
-|-------|-----------|
-| 🕷️ **Smart Crawler** | Crawl otomatis hingga 50 halaman dengan route detection |
-| ⚡ **Performance Test** | Load time, FCP, DOM ready, transfer size |
-| 🐛 **Bug & Error Detection** | Console errors, network failures, HTTP 4xx/5xx |
-| 📱 **Responsive Testing** | Desktop, tablet, mobile dengan screenshot per device |
-| ♿ **Accessibility Audit** | Alt text, label, heading structure, ARIA |
-| 🧪 **Interaction Testing** | Form, button, modal, dropdown testing otomatis |
-| 🔐 **Auth Testing** | Login flow, session, protected route testing |
-| 🎬 **Video Recording** | Record sesi testing per halaman |
-| 🤖 **AI Analysis** | Laporan profesional oleh Groq Llama 3.3 70B |
-| 🖥️ **GUI Desktop** | Tampilan modern dengan CustomTkinter, auto dark/light mode |
+| Feature | Description |
+|---------|-------------|
+| Smart Crawler | Crawl otomatis hingga 50 halaman dengan route detection |
+| Performance Test | Load time, FCP, DOM ready, transfer size |
+| Bug & Error Detection | Console errors, network failures, HTTP 4xx/5xx |
+| Responsive Testing | Desktop, tablet, mobile dengan screenshot per device |
+| Accessibility Audit | Alt text, label, heading structure, ARIA |
+| Interaction Testing | Form, button, modal, dropdown testing otomatis |
+| Auth Testing | Login flow, session, protected route testing |
+| Video Recording | Record sesi testing per halaman |
+| AI Analysis | Laporan profesional oleh Groq Llama 3.3 70B |
+| GUI Desktop | Tampilan modern dengan CustomTkinter, auto dark/light mode |
 
 ---
 
-## 🚀 Mode Testing
+## Testing Modes
 
-### ⚡ Quick Mode (~10–30 detik)
+### Quick (~10-30 seconds)
 - Homepage only
 - Basic performance & error check
 - Screenshot homepage
-- Desktop only · 1–3 halaman
+- Desktop only, 1-3 pages
 
-### 🎯 Standard Mode (~30–90 detik)
+### Standard (~30-90 seconds)
 - Limited crawling
 - Responsive + mobile test
 - Accessibility & form testing
-- AI analysis aktif
-- Desktop + Mobile · 5–15 halaman
+- AI analysis active
+- Desktop + Mobile, 5-15 pages
 
-### 🔬 Deep Mode (~2–10 menit)
+### Deep (~2-10 minutes)
 - Smart crawler + AI agent
 - Auth testing & session management
 - Visual & security testing
 - Video recording + replay
 - Deep AI analysis
-- Desktop + Tablet + Mobile · 20–50 halaman
+- Desktop + Tablet + Mobile, 20-50 pages
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-| Komponen | Teknologi |
-|----------|-----------|
+| Component | Technology |
+|-----------|------------|
 | GUI | CustomTkinter |
 | Browser Automation | Playwright |
 | AI Analysis | Groq (Llama 3.3 70B) |
@@ -71,7 +71,7 @@
 
 ---
 
-## 📦 Instalasi
+## Installation
 
 ### 1. Clone repository
 
@@ -95,11 +95,11 @@ Buat file `.env` di root folder:
 GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxx
 ```
 
-> Dapatkan API key gratis di [console.groq.com](https://console.groq.com)
+Dapatkan API key gratis di [console.groq.com](https://console.groq.com)
 
 ---
 
-## 🖥️ Cara Pakai
+## Usage
 
 ### GUI (Recommended)
 
@@ -109,8 +109,8 @@ python gui.py
 
 1. Masukkan URL website
 2. Pilih mode (Quick / Standard / Deep)
-3. Klik **Run Analysis**
-4. Lihat hasil di tab **Live Log** dan **AI Report**
+3. Klik Run Analysis
+4. Lihat hasil di tab Live Log dan AI Report
 
 ### CLI
 
@@ -132,7 +132,7 @@ python main.py --url https://example.com --mode deep \
 
 ---
 
-## 📁 Struktur Project
+## Project Structure
 
 ```
 NexusQA/
@@ -161,18 +161,18 @@ NexusQA/
 
 ---
 
-## ⚙️ Konfigurasi
+## Configuration
 
-| Variable | Keterangan | Default |
-|----------|-----------|---------|
-| `GROQ_API_KEY` | API key Groq (wajib) | — |
-| `GROQ_MODEL` | Model Groq yang digunakan | `llama-3.3-70b-versatile` |
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `GROQ_API_KEY` | API key Groq (required) | - |
+| `GROQ_MODEL` | Groq model yang digunakan | `llama-3.3-70b-versatile` |
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Pull request dan issue sangat welcome!
+Pull request dan issue sangat welcome.
 
 1. Fork repository ini
 2. Buat branch baru: `git checkout -b feature/nama-fitur`
@@ -182,15 +182,15 @@ Pull request dan issue sangat welcome!
 
 ---
 
-## 📄 License
+## License
 
-MIT License — bebas digunakan dan dimodifikasi.
+MIT License - bebas digunakan dan dimodifikasi.
 
 ---
 
 <div align="center">
 
-Made with ❤️ by **Kayy**
+Made with love by **Kayy**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Kayyonly-black?style=flat-square&logo=github)](https://github.com/Kayyonly)
 
