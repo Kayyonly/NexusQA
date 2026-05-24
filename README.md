@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 NexusQA
+# NexusQA
 
 **AI-Powered Website Review & QA Automation Tool**
 
